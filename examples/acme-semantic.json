@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "environment": "demo-acme",
+  "workspace": "checkout",
+  "sources": [
+    {
+      "id": "api",
+      "type": "files",
+      "path": "acme/api"
+    },
+    {
+      "id": "worker",
+      "type": "files",
+      "path": "acme/worker"
+    }
+  ],
+  "exclude": [
+    "**/private/**"
+  ],
+  "embeddings": {
+    "provider": "sentence-transformers",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384,
+    "cache_folder": "../.context-engine/models"
+  }
+}

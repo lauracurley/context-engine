@@ -1,0 +1,23 @@
+{
+  "description": "Public-safe synthetic semantic smoke fixture, authored before its first model run. Not independent evidence of production quality.",
+  "files": {
+    "auth/session.py": "def revoke_session(session_id, sessions):\n    \"\"\"Invalidate an authentication token and remove the active session.\"\"\"\n    sessions.pop(session_id, None)\n",
+    "billing/subscription.py": "def cancel_subscription(customer, subscriptions):\n    \"\"\"Terminate automatic recurring payments for a customer.\"\"\"\n    subscriptions[customer]['active'] = False\n",
+    "worker/retry.py": "def retry_delay(attempt, maximum=5):\n    \"\"\"Bound retries after transient network failures using exponential backoff.\"\"\"\n    if attempt >= maximum:\n        raise RuntimeError('RETRY_EXHAUSTED')\n    return 2 ** attempt\n",
+    "cache/results.py": "def cached_result(key, compute, cache):\n    \"\"\"Memoize expensive calculations to avoid recomputing the same output.\"\"\"\n    if key not in cache:\n        cache[key] = compute()\n    return cache[key]\n",
+    "events/publish.py": "def publish_job(job, listeners):\n    \"\"\"Broadcast newly created jobs to every registered listener.\"\"\"\n    for listener in listeners:\n        listener(job)\n",
+    "inventory/reservation.py": "def release_reservation(sku, quantity, stock):\n    \"\"\"Restore reserved inventory when an order is cancelled.\"\"\"\n    stock[sku] += quantity\n"
+  },
+  "cases": [
+    {"query":"sign someone out", "expected":"auth/session.py"},
+    {"query":"stop charging a recurring customer", "expected":"billing/subscription.py"},
+    {"query":"avoid repeating a failed network request forever", "expected":"worker/retry.py"},
+    {"query":"reuse previously computed results", "expected":"cache/results.py"},
+    {"query":"notify subscribers when new work arrives", "expected":"events/publish.py"},
+    {"query":"undo stock reservation after cancelled order", "expected":"inventory/reservation.py"},
+    {"query":"RETRY_EXHAUSTED", "expected":"worker/retry.py"},
+    {"query":"cancel_subscription", "expected":"billing/subscription.py"},
+    {"query":"rotate encryption certificates", "expected":null},
+    {"query":"resize photographs", "expected":null}
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "model": {
+    "provider": "sentence-transformers",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384,
+    "adapter_version": "1/st-5.1.2"
+  },
+  "fixture": "Public-safe synthetic semantic smoke fixture, authored before its first model run. Not independent evidence of production quality.",
+  "index_seconds": 3.5227717089999997,
+  "initial_index": {
+    "provider": "49f35d2dc45d8021282b1c224a07bc67b139c9993c9fdf2be800e9561c0c2cba",
+    "generation": "e5c744dd5ea636b29f9d042e8d338e840cb9ec7d4d2a424b691bb5a8afa5430c",
+    "state": "ready",
+    "embedded": 12,
+    "reused": 0
+  },
+  "repeat_index": {
+    "provider": "49f35d2dc45d8021282b1c224a07bc67b139c9993c9fdf2be800e9561c0c2cba",
+    "generation": "e5c744dd5ea636b29f9d042e8d338e840cb9ec7d4d2a424b691bb5a8afa5430c",
+    "state": "ready",
+    "embedded": 0,
+    "reused": 12
+  },
+  "summary": {
+    "lexical": {
+      "positive_top1": 5,
+      "positive_total": 8,
+      "negative_empty": 2,
+      "negative_total": 2
+    },
+    "semantic": {
+      "positive_top1": 8,
+      "positive_total": 8,
+      "negative_empty": 0,
+      "negative_total": 2
+    },
+    "hybrid": {
+      "positive_top1": 6,
+      "positive_total": 8,
+      "negative_empty": 0,
+      "negative_total": 2
+    }
+  },
+  "cases": [
+    {
+      "query": "sign someone out",
+      "expected": "auth/session.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [],
+          "top1_correct": false,
+          "used_mode": "lexical",
+          "seconds": 0.329323542,
+          "used_estimated_tokens": 0
+        },
+        "semantic": {
+          "retrieved": [
+            "auth/session.py",
+            "billing/subscription.py",
+            "inventory/reservation.py",
+            "events/publish.py",
+            "cache/results.py",
+            "worker/retry.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.0016475420000006,
+          "used_estimated_tokens": 4761
+        },
+        "hybrid": {
+          "retrieved": [
+            "auth/session.py",
+            "billing/subscription.py",
+            "inventory/reservation.py",
+            "events/publish.py",
+            "cache/results.py",
+            "worker/retry.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "hybrid",
+          "seconds": 0.9986236670000004,
+          "used_estimated_tokens": 4780
+        }
+      }
+    },
+    {
+      "query": "stop charging a recurring customer",
+      "expected": "billing/subscription.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "billing/subscription.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.34015054099999986,
+          "used_estimated_tokens": 749
+        },
+        "semantic": {
+          "retrieved": [
+            "billing/subscription.py",
+            "worker/retry.py",
+            "auth/session.py",
+            "inventory/reservation.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.0325964169999997,
+          "used_estimated_tokens": 4763
+        },
+        "hybrid": {
+          "retrieved": [
+            "billing/subscription.py",
+            "worker/retry.py",
+            "auth/session.py",
+            "inventory/reservation.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "hybrid",
+          "seconds": 1.004819208999999,
+          "used_estimated_tokens": 4791
+        }
+      }
+    },
+    {
+      "query": "avoid repeating a failed network request forever",
+      "expected": "worker/retry.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "billing/subscription.py",
+            "worker/retry.py",
+            "cache/results.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "lexical",
+          "seconds": 0.3253581669999992,
+          "used_estimated_tokens": 2316
+        },
+        "semantic": {
+          "retrieved": [
+            "worker/retry.py",
+            "billing/subscription.py",
+            "auth/session.py",
+            "inventory/reservation.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.00646375,
+          "used_estimated_tokens": 4732
+        },
+        "hybrid": {
+          "retrieved": [
+            "billing/subscription.py",
+            "worker/retry.py",
+            "cache/results.py",
+            "auth/session.py",
+            "inventory/reservation.py",
+            "events/publish.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "hybrid",
+          "seconds": 1.0015259170000004,
+          "used_estimated_tokens": 4785
+        }
+      }
+    },
+    {
+      "query": "reuse previously computed results",
+      "expected": "cache/results.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "cache/results.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.3281339999999986,
+          "used_estimated_tokens": 774
+        },
+        "semantic": {
+          "retrieved": [
+            "cache/results.py",
+            "worker/retry.py",
+            "inventory/reservation.py",
+            "events/publish.py",
+            "auth/session.py",
+            "billing/subscription.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.0001795409999996,
+          "used_estimated_tokens": 4775
+        },
+        "hybrid": {
+          "retrieved": [
+            "cache/results.py",
+            "worker/retry.py",
+            "inventory/reservation.py",
+            "events/publish.py",
+            "auth/session.py",
+            "billing/subscription.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "hybrid",
+          "seconds": 1.0068730000000006,
+          "used_estimated_tokens": 4804
+        }
+      }
+    },
+    {
+      "query": "notify subscribers when new work arrives",
+      "expected": "events/publish.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "inventory/reservation.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "lexical",
+          "seconds": 0.3330970409999985,
+          "used_estimated_tokens": 730
+        },
+        "semantic": {
+          "retrieved": [
+            "events/publish.py",
+            "billing/subscription.py",
+            "inventory/reservation.py",
+            "worker/retry.py",
+            "cache/results.py",
+            "auth/session.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.010691833000001,
+          "used_estimated_tokens": 4767
+        },
+        "hybrid": {
+          "retrieved": [
+            "inventory/reservation.py",
+            "events/publish.py",
+            "billing/subscription.py",
+            "worker/retry.py",
+            "cache/results.py",
+            "auth/session.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "hybrid",
+          "seconds": 1.003931875000001,
+          "used_estimated_tokens": 4780
+        }
+      }
+    },
+    {
+      "query": "undo stock reservation after cancelled order",
+      "expected": "inventory/reservation.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "inventory/reservation.py",
+            "worker/retry.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.33156658300000075,
+          "used_estimated_tokens": 1537
+        },
+        "semantic": {
+          "retrieved": [
+            "inventory/reservation.py",
+            "billing/subscription.py",
+            "auth/session.py",
+            "worker/retry.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.0017710000000015,
+          "used_estimated_tokens": 4801
+        },
+        "hybrid": {
+          "retrieved": [
+            "inventory/reservation.py",
+            "worker/retry.py",
+            "billing/subscription.py",
+            "auth/session.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "hybrid",
+          "seconds": 1.002084625000002,
+          "used_estimated_tokens": 4833
+        }
+      }
+    },
+    {
+      "query": "RETRY_EXHAUSTED",
+      "expected": "worker/retry.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "worker/retry.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.3327593749999984,
+          "used_estimated_tokens": 792
+        },
+        "semantic": {
+          "retrieved": [
+            "worker/retry.py",
+            "inventory/reservation.py",
+            "auth/session.py",
+            "billing/subscription.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.0044569169999988,
+          "used_estimated_tokens": 4776
+        },
+        "hybrid": {
+          "retrieved": [
+            "worker/retry.py",
+            "inventory/reservation.py",
+            "auth/session.py",
+            "billing/subscription.py",
+            "cache/results.py",
+            "events/publish.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "hybrid",
+          "seconds": 1.0113376669999994,
+          "used_estimated_tokens": 4807
+        }
+      }
+    },
+    {
+      "query": "cancel_subscription",
+      "expected": "billing/subscription.py",
+      "methods": {
+        "lexical": {
+          "retrieved": [
+            "billing/subscription.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.32891975000000073,
+          "used_estimated_tokens": 763
+        },
+        "semantic": {
+          "retrieved": [
+            "billing/subscription.py",
+            "inventory/reservation.py",
+            "auth/session.py",
+            "events/publish.py",
+            "worker/retry.py",
+            "cache/results.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "semantic",
+          "seconds": 1.0048089159999982,
+          "used_estimated_tokens": 4753
+        },
+        "hybrid": {
+          "retrieved": [
+            "billing/subscription.py",
+            "inventory/reservation.py",
+            "auth/session.py",
+            "events/publish.py",
+            "worker/retry.py",
+            "cache/results.py"
+          ],
+          "top1_correct": true,
+          "used_mode": "hybrid",
+          "seconds": 1.0100577920000013,
+          "used_estimated_tokens": 4799
+        }
+      }
+    },
+    {
+      "query": "rotate encryption certificates",
+      "expected": null,
+      "methods": {
+        "lexical": {
+          "retrieved": [],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.3312411250000018,
+          "used_estimated_tokens": 0
+        },
+        "semantic": {
+          "retrieved": [
+            "billing/subscription.py",
+            "cache/results.py",
+            "auth/session.py",
+            "worker/retry.py",
+            "events/publish.py",
+            "inventory/reservation.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "semantic",
+          "seconds": 1.0006550420000018,
+          "used_estimated_tokens": 4796
+        },
+        "hybrid": {
+          "retrieved": [
+            "billing/subscription.py",
+            "cache/results.py",
+            "auth/session.py",
+            "worker/retry.py",
+            "events/publish.py",
+            "inventory/reservation.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "hybrid",
+          "seconds": 1.0171818340000023,
+          "used_estimated_tokens": 4812
+        }
+      }
+    },
+    {
+      "query": "resize photographs",
+      "expected": null,
+      "methods": {
+        "lexical": {
+          "retrieved": [],
+          "top1_correct": true,
+          "used_mode": "lexical",
+          "seconds": 0.3321230839999991,
+          "used_estimated_tokens": 0
+        },
+        "semantic": {
+          "retrieved": [
+            "worker/retry.py",
+            "inventory/reservation.py",
+            "billing/subscription.py",
+            "cache/results.py",
+            "auth/session.py",
+            "events/publish.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "semantic",
+          "seconds": 1.0083389169999997,
+          "used_estimated_tokens": 4778
+        },
+        "hybrid": {
+          "retrieved": [
+            "worker/retry.py",
+            "inventory/reservation.py",
+            "billing/subscription.py",
+            "cache/results.py",
+            "auth/session.py",
+            "events/publish.py"
+          ],
+          "top1_correct": false,
+          "used_mode": "hybrid",
+          "seconds": 1.0056535830000009,
+          "used_estimated_tokens": 4796
+        }
+      }
+    }
+  ],
+  "limits": "Synthetic top-one smoke only. Semantic nearest-neighbor retrieval has no calibrated relevance cutoff and returns candidates even for unsupported questions. No production quality claim.",
+  "run_note": "Validated after replacing insertion-order ties with stable source/path/span tie-breaking; no fusion weights or relevance cutoffs tuned."
+}

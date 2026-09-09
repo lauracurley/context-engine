@@ -1,0 +1,2 @@
+# Optional local reference adapter; core and company adapters do not require this stack.
+sentence-transformers==5.1.2

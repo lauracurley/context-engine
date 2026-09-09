@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-09",
+  "purpose": "New evaluation questions, frozen before their first run; no retrieval tuning against them. Author has seen the fixtures, so this is not an independently blinded holdout.",
+  "cases": [
+    {"id":"a1","environment":"acme","kind":"behavior","query":"Where is template selection validated before publishing a queued task?","expected":["api/tasks.py"]},
+    {"id":"a2","environment":"acme","kind":"cross-source","query":"How does priority travel from task creation to completion?","expected":["api/tasks.py","worker/consumer.py"]},
+    {"id":"a3","environment":"acme","kind":"identifier","query":"consume_task","expected":["worker/consumer.py"]},
+    {"id":"a4","environment":"acme","kind":"error","query":"What rejects UNKNOWN_EVENT messages?","expected":["worker/consumer.py"]},
+    {"id":"a5","environment":"acme","kind":"behavior","query":"Which templates accept invoice and receipt?","expected":["api/tasks.py"]},
+    {"id":"a6","environment":"acme","kind":"paraphrase","query":"Where is an unsupported blueprint rejected?","expected":["api/tasks.py"]},
+    {"id":"a7","environment":"acme","kind":"negative","query":"parcelCode","expected":[]},
+    {"id":"a8","environment":"acme","kind":"negative","query":"stripeWebhookSignature","expected":[]},
+    {"id":"h1","environment":"harbor","kind":"identifier","query":"dispatchParcel","expected":["dispatch/send.ts"]},
+    {"id":"h2","environment":"harbor","kind":"cross-source","query":"Where is parcel.dispatched emitted and documented?","expected":["dispatch/send.ts","handbook/delivery.md"]},
+    {"id":"h3","environment":"harbor","kind":"behavior","query":"What changes a parcel to DELIVERED?","expected":["handbook/delivery.md"]},
+    {"id":"h4","environment":"harbor","kind":"missing-implementation","query":"Where can I inspect the delivery receipt consumer?","expected":["handbook/delivery.md"],"note":"Only documentation exists; do not claim an implementation was retrieved."},
+    {"id":"h5","environment":"harbor","kind":"paraphrase","query":"Where is shipment arrival acknowledged?","expected":["handbook/delivery.md"]},
+    {"id":"h6","environment":"harbor","kind":"negative","query":"UNKNOWN_TEMPLATE","expected":[]},
+    {"id":"h7","environment":"harbor","kind":"negative","query":"oauthRefreshToken","expected":[]},
+    {"id":"h8","environment":"harbor","kind":"negative-natural-language","query":"Where is credit card payment captured?","expected":[]}
+  ]
+}
