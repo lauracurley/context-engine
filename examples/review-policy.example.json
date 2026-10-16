@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "authors": [501],
+  "reviewers": [501],
+  "sources": ["api"],
+  "separation_of_duties": false,
+  "allow_github": false,
+  "github_repositories": {"api": "REPLACE/REPOSITORY"}
+}

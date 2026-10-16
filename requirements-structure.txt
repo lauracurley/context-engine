@@ -1,0 +1,2 @@
+# Optional local AST/token splitter used by the referenced code-search implementation.
+code-splitter==0.1.5

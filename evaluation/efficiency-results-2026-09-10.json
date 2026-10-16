@@ -1,0 +1,47 @@
+{
+  "fixture": "acme plus 100 distractor files",
+  "measurement": "JSON UTF-8 bytes; no model inference",
+  "cases": [
+    {
+      "task": "scoped_identifier",
+      "expected": [
+        "api/tasks.py"
+      ],
+      "retrieved": [
+        "api/tasks.py"
+      ],
+      "bytes": 1029,
+      "citations_valid": true,
+      "passed": true
+    },
+    {
+      "task": "cross_service_contract",
+      "expected": [
+        "worker/consumer.py"
+      ],
+      "retrieved": [
+        "worker/consumer.py"
+      ],
+      "bytes": 1150,
+      "citations_valid": true,
+      "passed": true
+    },
+    {
+      "task": "no_invented_dependency",
+      "expected": [],
+      "retrieved": [],
+      "bytes": 506,
+      "citations_valid": true,
+      "passed": true
+    },
+    {
+      "task": "missing_identifier",
+      "expected": [],
+      "retrieved": [],
+      "bytes": 550,
+      "citations_valid": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

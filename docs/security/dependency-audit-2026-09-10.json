@@ -1,0 +1,1011 @@
+{
+  "checked_at": "2026-09-10T20:13:19.305943+00:00",
+  "service": "OSV querybatch",
+  "scan_status": "completed",
+  "transmitted_fields": [
+    "public package ecosystem",
+    "public package name",
+    "public version"
+  ],
+  "limitations": [
+    "Not a security approval or malware/source review",
+    "Optional semantic/splitter transitive environments not installed or fully resolved",
+    "Native binaries and model artifacts need separate review"
+  ],
+  "packages": [
+    {
+      "ecosystem": "PyPI",
+      "name": "sentence-transformers",
+      "version": "5.1.2",
+      "origin": [
+        "requirements-semantic.txt"
+      ],
+      "license": "not reviewed",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "code-splitter",
+      "version": "0.1.5",
+      "origin": [
+        "requirements-structure.txt"
+      ],
+      "license": "not reviewed",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "ruff",
+      "version": "0.16.6",
+      "origin": [
+        "requirements-dev.txt"
+      ],
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "tree-sitter",
+      "version": "0.23.2",
+      "origin": [
+        "requirements-navigation.txt"
+      ],
+      "license": "not declared",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "tree-sitter-javascript",
+      "version": "0.23.1",
+      "origin": [
+        "requirements-navigation.txt"
+      ],
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "tree-sitter-typescript",
+      "version": "0.23.2",
+      "origin": [
+        "requirements-navigation.txt"
+      ],
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "tree-sitter-kotlin",
+      "version": "1.1.0",
+      "origin": [
+        "requirements-navigation.txt"
+      ],
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "pip",
+      "version": "21.2.4",
+      "origin": [
+        "isolated navigation/development environment"
+      ],
+      "license": "MIT",
+      "advisories": [
+        "GHSA-4xh5-x5gv-qwph",
+        "GHSA-58qw-9mgm-455v",
+        "GHSA-6vgw-5pg2-w6jp",
+        "GHSA-jp4c-xjxw-mgf9",
+        "GHSA-mq26-g339-26xf",
+        "GHSA-qwm4-qh6w-59xr",
+        "GHSA-wf93-45jw-7689",
+        "PYSEC-2023-228",
+        "PYSEC-2026-1795",
+        "PYSEC-2026-1796",
+        "PYSEC-2026-196",
+        "PYSEC-2026-2875",
+        "PYSEC-2026-2876",
+        "PYSEC-2026-3721"
+      ]
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "setuptools",
+      "version": "58.0.4",
+      "origin": [
+        "isolated navigation/development environment"
+      ],
+      "license": "UNKNOWN",
+      "advisories": [
+        "GHSA-5rjg-fvgr-3xxf",
+        "GHSA-cx63-2mw6-8hw5",
+        "GHSA-h35f-9h28-mq5c",
+        "GHSA-r9hx-vwmv-q579",
+        "PYSEC-2022-43012",
+        "PYSEC-2025-49",
+        "PYSEC-2026-1918",
+        "PYSEC-2026-3447"
+      ]
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cacheable/memory",
+      "version": "2.2.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@cacheable/utils",
+      "version": "2.5.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint-community/eslint-utils",
+      "version": "4.10.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "eslint-visitor-keys",
+      "version": "3.4.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint-community/regexpp",
+      "version": "4.12.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint/config-array",
+      "version": "0.23.5",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint/config-helpers",
+      "version": "0.7.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint/core",
+      "version": "1.2.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint/js",
+      "version": "10.0.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint/object-schema",
+      "version": "3.0.5",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@eslint/plugin-kit",
+      "version": "0.7.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@humanfs/core",
+      "version": "0.19.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@humanfs/node",
+      "version": "0.16.8",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@humanfs/types",
+      "version": "0.15.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@humanwhocodes/module-importer",
+      "version": "1.0.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@humanwhocodes/retry",
+      "version": "0.4.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@keyv/bigmap",
+      "version": "1.3.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@keyv/serialize",
+      "version": "1.1.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/esrecurse",
+      "version": "4.3.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/estree",
+      "version": "1.0.9",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@types/json-schema",
+      "version": "7.0.15",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "acorn",
+      "version": "8.18.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "acorn-jsx",
+      "version": "5.3.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "ajv",
+      "version": "6.15.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "balanced-match",
+      "version": "4.0.4",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "brace-expansion",
+      "version": "5.0.9",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "cacheable",
+      "version": "2.5.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "debug",
+      "version": "4.4.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "deep-is",
+      "version": "0.1.4",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "escape-string-regexp",
+      "version": "4.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "eslint",
+      "version": "10.10.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "eslint-scope",
+      "version": "9.1.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-2-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "eslint-visitor-keys",
+      "version": "5.0.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "Apache-2.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "espree",
+      "version": "11.2.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-2-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "esquery",
+      "version": "1.7.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-3-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "esrecurse",
+      "version": "4.3.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-2-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "estraverse",
+      "version": "5.3.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-2-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "esutils",
+      "version": "2.0.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-2-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "fast-deep-equal",
+      "version": "3.1.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "fast-json-stable-stringify",
+      "version": "2.1.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "fast-levenshtein",
+      "version": "2.0.6",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "file-entry-cache",
+      "version": "11.1.5",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "find-up",
+      "version": "5.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "flat-cache",
+      "version": "6.1.23",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "flatted",
+      "version": "3.4.4",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "ISC",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "glob-parent",
+      "version": "6.0.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "ISC",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "globals",
+      "version": "16.5.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "hashery",
+      "version": "1.5.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "hookified",
+      "version": "1.15.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "ignore",
+      "version": "5.3.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "imurmurhash",
+      "version": "0.1.4",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "is-extglob",
+      "version": "2.1.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "is-glob",
+      "version": "4.0.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "isexe",
+      "version": "2.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "ISC",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "json-schema-traverse",
+      "version": "0.4.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "json-stable-stringify-without-jsonify",
+      "version": "1.0.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "keyv",
+      "version": "5.6.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "levn",
+      "version": "0.4.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "locate-path",
+      "version": "6.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "minimatch",
+      "version": "10.2.6",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BlueOak-1.0.0",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "ms",
+      "version": "2.1.3",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "natural-compare",
+      "version": "1.4.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "optionator",
+      "version": "0.9.4",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "p-limit",
+      "version": "3.1.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "p-locate",
+      "version": "5.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "path-exists",
+      "version": "4.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "path-key",
+      "version": "3.1.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "prelude-ls",
+      "version": "1.2.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "prettier",
+      "version": "3.9.6",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "punycode",
+      "version": "2.3.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "qified",
+      "version": "0.10.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "hookified",
+      "version": "2.2.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "type-check",
+      "version": "0.4.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "uri-js",
+      "version": "4.4.1",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "BSD-2-Clause",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "which",
+      "version": "2.0.2",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "ISC",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "word-wrap",
+      "version": "1.2.5",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    },
+    {
+      "ecosystem": "npm",
+      "name": "yocto-queue",
+      "version": "0.1.0",
+      "origin": [
+        "development lockfile"
+      ],
+      "integrity_present": true,
+      "license": "MIT",
+      "advisories": []
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "mode": "read_only",
+  "decision": "investigate",
+  "candidates": [
+    {
+      "operation": "search_code",
+      "signal": "stale",
+      "count": 40,
+      "calls": 100,
+      "hypothesis": "Freshness recovery may interrupt retrieval",
+      "next_check": "Reproduce saved-file drift and compare refresh/retry calls on synthetic fixtures"
+    }
+  ],
+  "limits": [
+    "Voluntary reports are not a randomized experiment",
+    "Counts do not establish answer quality or root cause",
+    "No client content or report attachment is copied into this packet"
+  ],
+  "next": "Choose one hypothesis, freeze baseline and guardrails, reproduce synthetically, then review a bounded patch"
+}

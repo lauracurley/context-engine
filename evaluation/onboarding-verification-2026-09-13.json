@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-13",
+  "increment": "VS Code onboarding and documentation polish",
+  "artifact": "dist/context-engine-0.5.1.vsix",
+  "sha256": "b805176c02d606a4fb16267a01db023b1391481569feb5dacf3564e06904d8f1",
+  "version": "0.5.1",
+  "checks": {
+    "full_quality_gate": "passed",
+    "python_tests": 105,
+    "python_optional_skips": 2,
+    "javascript_tests": 34,
+    "focused_extension_command_tests": 20,
+    "documentation_links_and_anchors": "6 changed documents checked",
+    "packaged_source_and_readme_match": true,
+    "runtime_npm_dependencies_bundled": false
+  },
+  "new_dependencies": [],
+  "limitations": [
+    "No fresh company Mac or real approved agent account rehearsal in this increment.",
+    "No installation into the active user VS Code profile.",
+    "Python and approved parser packages remain separately prepared by the team.",
+    "No new usage schema fields or uploader."
+  ]
+}

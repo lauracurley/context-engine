@@ -1,0 +1,53 @@
+{
+  "measurement": "UTF-8 bytes of complete compact JSON payload; not actual model tokens",
+  "fixture": "examples/acme.json (two tiny Python modules)",
+  "cases": [
+    {
+      "query": "task.requested priority",
+      "same_files": true,
+      "files": [
+        "api/tasks.py",
+        "worker/consumer.py"
+      ],
+      "full_payload_bytes": 4387,
+      "compact_payload_bytes": 1587,
+      "outline_payload_bytes": 959,
+      "compact_reduction_percent": 63.8
+    },
+    {
+      "query": "UNKNOWN_TEMPLATE",
+      "same_files": true,
+      "files": [
+        "api/tasks.py"
+      ],
+      "full_payload_bytes": 3441,
+      "compact_payload_bytes": 1019,
+      "outline_payload_bytes": 719,
+      "compact_reduction_percent": 70.4
+    },
+    {
+      "query": "COMPLETED",
+      "same_files": true,
+      "files": [
+        "worker/consumer.py"
+      ],
+      "full_payload_bytes": 3362,
+      "compact_payload_bytes": 886,
+      "outline_payload_bytes": 725,
+      "compact_reduction_percent": 73.6
+    }
+  ],
+  "overview": {
+    "bytes": 1713,
+    "budget": 2000,
+    "shared_contract_cited": true,
+    "unchanged_bytes": 408,
+    "unchanged_state": "unchanged"
+  },
+  "limitations": [
+    "Synthetic smoke fixture; no production quality or scale claim",
+    "Fewer bytes does not establish equivalent task success",
+    "Semantic quality remains a separate evaluation"
+  ],
+  "passed": true
+}

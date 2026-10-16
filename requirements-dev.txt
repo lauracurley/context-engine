@@ -1,0 +1,2 @@
+# Development only; runtime remains standard-library by default.
+ruff==0.16.6

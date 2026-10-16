@@ -1,0 +1,405 @@
+{
+  "name": "context-engine",
+  "displayName": "Context Engine",
+  "description": "Scoped code context for Codex in VS Code, with local indexing and structural navigation.",
+  "version": "0.6.2",
+  "publisher": "context-engine-local",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=22.13.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./src/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onView:contextEngine.home"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "Runs local indexing and official coding-agent processes."
+    },
+    "virtualWorkspaces": {
+      "supported": false,
+      "description": "Requires filesystem repositories and local processes on the extension host."
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "package": "python3 scripts/package.py",
+    "pretest": "npm run package",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0",
+    "format": "prettier --write \"{src,media,test}/**/*.{js,css}\" \"*.{json,cjs}\"",
+    "format:check": "prettier --check \"{src,media,test}/**/*.{js,css}\" \"*.{json,cjs}\"",
+    "verify": "npm run lint && npm run format:check && npm test"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "contextEngine.codexIde",
+        "title": "Open Codex IDE Workspace",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.checkSetup",
+        "title": "Check Python and Kotlin Setup",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.chooseManifest",
+        "title": "Select Manifest",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.createScope",
+        "title": "Create Scope from Workspace Folders",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.status",
+        "title": "Index Status",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.refresh",
+        "title": "Refresh Code",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.refreshAll",
+        "title": "Refresh Code and History",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.overview",
+        "title": "System Overview",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.search",
+        "title": "Search Code",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.read",
+        "title": "Read Cited File",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.startCrawler",
+        "title": "Start Crawler",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.stopCrawler",
+        "title": "Stop Crawler",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.login",
+        "title": "Sign In to Agent",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.logout",
+        "title": "Sign Out of Agent",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.accountStatus",
+        "title": "Agent Account Status",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.launchAgent",
+        "title": "Open Agent",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.model",
+        "title": "Choose Agent Model",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.codexLogin",
+        "title": "Sign In to OpenAI Codex",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.claudeLogin",
+        "title": "Sign In to Anthropic Claude Code",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.codexLaunch",
+        "title": "Open Codex Terminal (Legacy)",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.claudeLaunch",
+        "title": "Open Claude Code with Context",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.diagnostics",
+        "title": "Diagnostics",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.workbench",
+        "title": "Open Context Workbench",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted",
+        "icon": "$(book)"
+      },
+      {
+        "command": "contextEngine.profiles",
+        "title": "Edit Workspace Profile",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.taskPacks",
+        "title": "Task Context Packs",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.instructions",
+        "title": "Context Engine: Resolve Repository Instructions"
+      },
+      {
+        "command": "contextEngine.structure",
+        "title": "Context Engine: Structural Navigation"
+      },
+      {
+        "command": "contextEngine.searchSelection",
+        "title": "Find Context for Selection",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted && editorHasSelection"
+      },
+      {
+        "command": "contextEngine.clientReadiness",
+        "title": "Client-test Readiness",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.usageReport",
+        "title": "Reviewed Usage Report",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.localData",
+        "title": "Local Data Inventory and Reset",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.benchmark",
+        "title": "Run Synthetic Benchmark",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.knowledgeWiki",
+        "title": "Context Engine: Human knowledge wiki"
+      },
+      {
+        "command": "contextEngine.knowledgePropose",
+        "title": "Context Engine: Import knowledge proposal"
+      },
+      {
+        "command": "contextEngine.knowledgeReview",
+        "title": "Context Engine: Review knowledge proposals"
+      },
+      {
+        "command": "contextEngine.knowledgeDraft",
+        "title": "Context Engine: New knowledge draft"
+      },
+      {
+        "command": "contextEngine.knowledgeHistory",
+        "title": "Context Engine: Knowledge revision history"
+      },
+      {
+        "command": "contextEngine.knowledgeAudit",
+        "title": "Context Engine: Local review audit"
+      },
+      {
+        "command": "contextEngine.githubReviews",
+        "title": "Context Engine: Fetch GitHub review candidates"
+      },
+      {
+        "command": "contextEngine.githubCandidate",
+        "title": "Context Engine: Refine imported review lesson"
+      },
+      {
+        "command": "contextEngine.commonplace",
+        "title": "Context Engine: Commonplace team knowledge"
+      },
+      {
+        "command": "contextEngine.changeBrief",
+        "title": "Context Engine: Prepare Change Context Brief"
+      },
+      {
+        "command": "contextEngine.knowledgeMaintenance",
+        "title": "Context Engine: Maintain Local Knowledge"
+      },
+      {
+        "command": "contextEngine.reasoningNote",
+        "title": "Context Engine: New Scratch Reasoning Note"
+      },
+      {
+        "command": "contextEngine.getStarted",
+        "title": "Context Engine: Get Started"
+      },
+      {
+        "command": "contextEngine.toggleAdvanced",
+        "title": "Context Engine: Toggle Advanced Sidebar Actions"
+      },
+      {
+        "command": "contextEngine.workspaceHealth",
+        "title": "Workspace Health",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.knowledgeHome",
+        "title": "Team Knowledge",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "contextEngine.reviewLearning",
+        "title": "Learn from GitHub Reviews",
+        "category": "Context Engine",
+        "enablement": "isWorkspaceTrusted"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "contextEngine",
+          "title": "Context Engine",
+          "icon": "media/context.svg"
+        }
+      ]
+    },
+    "views": {
+      "contextEngine": [
+        {
+          "id": "contextEngine.home",
+          "name": "Workspace and Agents"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Context Engine",
+      "properties": {
+        "contextEngine.pythonPath": {
+          "type": "string",
+          "default": "python3",
+          "scope": "machine-overridable",
+          "description": "Python 3.9+ executable on the extension host. Use a virtual environment interpreter for optional embeddings."
+        },
+        "contextEngine.codexPath": {
+          "type": "string",
+          "default": "codex",
+          "scope": "machine",
+          "description": "Official Codex CLI executable on the extension host. No shell arguments."
+        },
+        "contextEngine.claudePath": {
+          "type": "string",
+          "default": "claude",
+          "scope": "machine",
+          "description": "Official Claude Code CLI executable on the extension host. No shell arguments."
+        },
+        "contextEngine.manifestPath": {
+          "type": "string",
+          "default": "",
+          "scope": "resource",
+          "description": "Initial absolute context manifest path for a generated IDE workspace. Selecting a scope overrides it for this window."
+        },
+        "contextEngine.statePaths": {
+          "type": "object",
+          "default": {},
+          "scope": "machine-overridable",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "State directories keyed by absolute manifest path. Generated workspaces use these to share their index and reviewed knowledge with MCP. Existing storage policy still applies; this does not migrate data."
+        },
+        "contextEngine.storageRoot": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Company-approved absolute local artifact directory. Restart the extension after changing. Does not migrate old data."
+        },
+        "contextEngine.policyPath": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Absolute administrator-supplied deployment policy file. Not a substitute for MDM or network policy."
+        },
+        "contextEngine.reviewPolicyPath": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Absolute administrator-owned local reviewer policy. Controls local review proposals and GitHub repository mapping. Gateway review learning uses the client’s existing connection. OS identity is not shared SSO."
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "contextEngine.searchSelection",
+          "when": "isWorkspaceTrusted && editorHasSelection",
+          "group": "navigation@20"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "contextEngine.workbench",
+          "when": "view == contextEngine.home && isWorkspaceTrusted",
+          "group": "navigation@1"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.10.0",
+    "globals": "16.5.0",
+    "prettier": "3.9.6"
+  }
+}

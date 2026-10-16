@@ -1,11 +1,11 @@
 import importlib.util
 import json
-from pathlib import Path
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 
 from context_engine.core import Engine
 
@@ -29,6 +29,28 @@ class EngineTests(unittest.TestCase):
         self.engines.append(engine)
         return engine
 
+    def test_malformed_manifests_fail_before_creating_state(self):
+        valid = {
+            "schema_version": 1,
+            "environment": "client",
+            "workspace": "test",
+            "sources": [{"id": "api", "path": "examples/acme/api"}],
+        }
+        invalid = [None, [], "text", dict(valid, schema_version=True)]
+        invalid += [dict(valid, sources=[source]) for source in [None, [], "api"]]
+        invalid += [
+            dict(valid, sources=[{"id": "api", "path": value}])
+            for value in [None, 1, [], "", "   "]
+        ]
+        invalid.append(dict(valid, sources=[{"id": "api"}]))
+        manifest = self.root / "invalid.json"
+        for value in invalid:
+            with self.subTest(value=value):
+                manifest.write_text(json.dumps(value))
+                with self.assertRaises(ValueError):
+                    Engine(manifest, self.root / "invalid-state")
+                self.assertFalse((self.root / "invalid-state").exists())
+
     def test_two_environments_and_budget(self):
         a, b = self.engine(), self.engine("harbor")
         a.index()
@@ -50,23 +72,34 @@ class EngineTests(unittest.TestCase):
         cost = len(json.dumps(first, ensure_ascii=False).encode("utf-8"))
         partial = e.search("task.requested priority", token_budget=cost)
         self.assertEqual(partial["items"], [first])
-        self.assertEqual(partial["budget"]["omitted_files"], [{"source": "api", "path": "tasks.py"}])
+        self.assertEqual(
+            partial["budget"]["omitted_files"], [{"source": "api", "path": "tasks.py"}]
+        )
         self.assertTrue(any("Evidence budget omitted" in gap for gap in partial["gaps"]))
         self.assertLessEqual(partial["budget"]["used_estimated_tokens"], cost)
         tiny = e.search("task.requested priority", token_budget=1)
-        self.assertEqual(tiny["budget"]["omitted_files"], [
-            {"source": "api", "path": "tasks.py"}, {"source": "worker", "path": "consumer.py"}])
+        self.assertEqual(
+            tiny["budget"]["omitted_files"],
+            [{"source": "api", "path": "tasks.py"}, {"source": "worker", "path": "consumer.py"}],
+        )
         self.assertIn("No matching evidence fits the budget", tiny["gaps"])
         missing = e.search("absentsentinel20260909", token_budget=1)
         self.assertEqual(missing["budget"]["omitted_files"], [])
         self.assertIn("No matching evidence", missing["gaps"])
         self.assertEqual(full["budget"]["omitted_files"], [])
         # Item limits are not budget omissions.
-        self.assertEqual(e.search("task.requested priority", limit=1, token_budget=8000)["budget"]["omitted_files"], [])
+        self.assertEqual(
+            e.search("task.requested priority", limit=1, token_budget=8000)["budget"][
+                "omitted_files"
+            ],
+            [],
+        )
         # A selected AST excerpt covers an overlapping, oversized file window.
         api = e.search("UNKNOWN_TEMPLATE", token_budget=8000)["items"][0]
         budget = len(json.dumps(api, ensure_ascii=False).encode("utf-8"))
-        self.assertEqual(e.search("UNKNOWN_TEMPLATE", token_budget=budget)["budget"]["omitted_files"], [])
+        self.assertEqual(
+            e.search("UNKNOWN_TEMPLATE", token_budget=budget)["budget"]["omitted_files"], []
+        )
 
     def test_incremental_edit_delete_and_unavailable(self):
         e = self.engine()
@@ -99,18 +132,37 @@ class EngineTests(unittest.TestCase):
 
     def test_git_ignore_and_revision_drift(self):
         root = self.root / "examples/acme/api"
+
         def run(*args):
             return subprocess.run(["git", "-C", str(root), *args], check=True, capture_output=True)
+
         run("init")
         (root / ".gitignore").write_text("hidden.py\n")
         (root / "hidden.py").write_text("IGNORE_SENTINEL = 1")
         run("add", ".")
-        run("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "-m", "fixture")
+        run(
+            "-c",
+            "user.name=Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "-m",
+            "fixture",
+        )
         e = self.engine()
         e.index()
         self.assertEqual(e.search("IGNORE_SENTINEL")["items"], [])
         self.assertTrue(e.search("UNKNOWN_TEMPLATE")["items"][0]["revision"])
-        run("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "--allow-empty", "-m", "revision")
+        run(
+            "-c",
+            "user.name=Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "--allow-empty",
+            "-m",
+            "revision",
+        )
         self.assertEqual(e.status()["state"], "stale")
         self.assertEqual(e.index()["changed"], 0)
         self.assertEqual(e.status()["state"], "ready")
@@ -133,18 +185,86 @@ class EngineTests(unittest.TestCase):
         e = self.engine()
         e.index()
         requests = [
-            {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-11-25", "capabilities": {}, "clientInfo": {"name": "test", "version": "1"}}},
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "initialize",
+                "params": {
+                    "protocolVersion": "2025-11-25",
+                    "capabilities": {},
+                    "clientInfo": {"name": "test", "version": "1"},
+                },
+            },
             {"jsonrpc": "2.0", "method": "notifications/initialized"},
             {"jsonrpc": "2.0", "id": 2, "method": "tools/list"},
-            {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "search_context", "arguments": {"query": "UNKNOWN_TEMPLATE"}}},
-            {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "search_context", "arguments": {"query": "task", "workspace": "other"}}},
-            {"jsonrpc": "2.0", "id": 5, "method": "tools/call", "params": {"name": "get_context_bundle", "arguments": {"task": "task.requested priority", "token_budget": 1}}},
+            {
+                "jsonrpc": "2.0",
+                "id": 3,
+                "method": "tools/call",
+                "params": {"name": "search_context", "arguments": {"query": "UNKNOWN_TEMPLATE"}},
+            },
+            {
+                "jsonrpc": "2.0",
+                "id": 4,
+                "method": "tools/call",
+                "params": {
+                    "name": "search_context",
+                    "arguments": {"query": "task", "workspace": "other"},
+                },
+            },
+            {
+                "jsonrpc": "2.0",
+                "id": 5,
+                "method": "tools/call",
+                "params": {
+                    "name": "get_context_bundle",
+                    "arguments": {"task": "task.requested priority", "token_budget": 1},
+                },
+            },
         ]
-        result = subprocess.run([sys.executable, "-m", "context_engine", "--manifest", str(e.manifest), "--state", str(e.state), "serve"],
-                                input="\n".join(json.dumps(r) for r in requests) + "\n", text=True, capture_output=True, cwd=ROOT, check=True)
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "context_engine",
+                "--manifest",
+                str(e.manifest),
+                "--state",
+                str(e.state),
+                "serve",
+            ],
+            input="\n".join(json.dumps(r) for r in requests) + "\n",
+            text=True,
+            capture_output=True,
+            cwd=ROOT,
+            check=True,
+        )
         responses = [json.loads(line) for line in result.stdout.splitlines()]
         self.assertEqual(len(responses), 5)
-        self.assertEqual(len(responses[1]["result"]["tools"]), 3)
+        self.assertEqual(
+            {t["name"] for t in responses[1]["result"]["tools"]},
+            {
+                "search_context",
+                "get_context_bundle",
+                "index_status",
+                "history_request",
+                "ingest_history",
+                "search_history",
+                "get_system_overview",
+                "search_code",
+                "read_code",
+                "find_related",
+                "resolve_instructions",
+                "navigate_structure",
+                "lookup_knowledge",
+                "get_change_brief",
+                "refresh_context",
+                "review_context_request",
+                "import_review_context",
+                "get_review_context",
+                "propose_review_guideline",
+            },
+        )
         self.assertTrue(json.loads(responses[2]["result"]["content"][0]["text"])["items"])
         self.assertTrue(responses[3]["result"]["isError"])
         tiny = json.loads(responses[4]["result"]["content"][0]["text"])
@@ -157,6 +277,7 @@ class EngineTests(unittest.TestCase):
             mod = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(mod)
             return mod
+
         api = module("examples/acme/api/tasks.py")
         worker = module("examples/acme/worker/consumer.py")
         queue = []

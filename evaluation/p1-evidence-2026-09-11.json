@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "suite": "p1-evidence-1",
+  "corpus": "generated-v1",
+  "report_kind": "synthetic_evidence_evaluation",
+  "cases": [
+    {
+      "case": "identifier",
+      "split": "development",
+      "sequence_byte_budget": 3000,
+      "baseline": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 883,
+        "citation_hashes_current": true,
+        "p50_ms": 579.42,
+        "p95_ms": 690.874
+      },
+      "candidate": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 850,
+        "citation_hashes_current": true,
+        "p50_ms": 362.291,
+        "p95_ms": 393.777
+      }
+    },
+    {
+      "case": "cross_repo_contract",
+      "split": "development",
+      "sequence_byte_budget": 3000,
+      "baseline": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 1189,
+        "citation_hashes_current": true,
+        "p50_ms": 555.969,
+        "p95_ms": 581.006
+      },
+      "candidate": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 1511,
+        "citation_hashes_current": true,
+        "p50_ms": 394.21,
+        "p95_ms": 418.73
+      }
+    },
+    {
+      "case": "missing_answer",
+      "split": "held_out",
+      "sequence_byte_budget": 3000,
+      "baseline": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 581,
+        "citation_hashes_current": true,
+        "p50_ms": 566.842,
+        "p95_ms": 590.587
+      },
+      "candidate": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 555,
+        "citation_hashes_current": true,
+        "p50_ms": 383.861,
+        "p95_ms": 398.767
+      }
+    },
+    {
+      "case": "outside_scope",
+      "split": "held_out",
+      "sequence_byte_budget": 3000,
+      "baseline": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 581,
+        "citation_hashes_current": true,
+        "p50_ms": 584.329,
+        "p95_ms": 587.405
+      },
+      "candidate": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 555,
+        "citation_hashes_current": true,
+        "p50_ms": 401.34,
+        "p95_ms": 446.801
+      }
+    },
+    {
+      "case": "kotlin_ambiguity",
+      "split": "held_out",
+      "sequence_byte_budget": 3000,
+      "baseline": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 1169,
+        "citation_hashes_current": true,
+        "p50_ms": 586.766,
+        "p95_ms": 609.079
+      },
+      "candidate": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 1037,
+        "citation_hashes_current": true,
+        "p50_ms": 426.309,
+        "p95_ms": 426.434
+      }
+    },
+    {
+      "case": "change_with_exception",
+      "split": "held_out",
+      "sequence_byte_budget": 6000,
+      "baseline": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 3,
+        "response_bytes": 2528,
+        "citation_hashes_current": true,
+        "p50_ms": 1321.459,
+        "p95_ms": 1322.17
+      },
+      "candidate": {
+        "passed": true,
+        "iterations": 3,
+        "calls": 1,
+        "response_bytes": 2419,
+        "citation_hashes_current": true,
+        "p50_ms": 1641.885,
+        "p95_ms": 1687.181
+      }
+    }
+  ],
+  "checks": {
+    "branch_reuse": true,
+    "branch_isolation": true,
+    "stale_code_withheld": true,
+    "stale_rule_withheld": true,
+    "refresh_recovered": true,
+    "deleted_evidence_withheld": true
+  },
+  "indexing": {
+    "cold": {
+      "ms": 396.806,
+      "hits": 0,
+      "computed": 124,
+      "max_payload_bytes": 16777216
+    },
+    "warm": {
+      "ms": 261.486,
+      "hits": 0,
+      "computed": 0,
+      "max_payload_bytes": 16777216
+    },
+    "branch_b": {
+      "ms": 292.714,
+      "hits": 0,
+      "computed": 1,
+      "max_payload_bytes": 16777216
+    },
+    "return_a": {
+      "ms": 261.484,
+      "hits": 1,
+      "computed": 0,
+      "max_payload_bytes": 16777216
+    }
+  },
+  "python_traced_peak_bytes": 2457808,
+  "store_bytes": 1507736,
+  "actual_model_tokens": null,
+  "model_task_completion": "not measured",
+  "passed": true,
+  "limits": "Synthetic evidence tasks only; no model inference, billing or production scale claims. Three-run p95 is the maximum sample. Traced memory excludes native allocations."
+}

@@ -1,0 +1,22 @@
+{
+  "release": "0.5.0",
+  "artifact": "context-engine-0.5.0.vsix",
+  "sha256": "c99339ad4834e1666b2fa26a6615d2683fc327e78ac85b4fe77aab9c51c17db2",
+  "quality": {
+    "python_tests": 90,
+    "optional_model_skips": 2,
+    "extension_tests": 27,
+    "offline_evaluations": "passed",
+    "focused_readiness_and_launch_tests_after_final_preflight_change": 8
+  },
+  "actual_editor_host": {
+    "packaged_extension": true,
+    "wiki": true,
+    "indexing": true,
+    "synthetic_benchmark": true,
+    "missing_admin_review_policy_correctly_blocks_readiness": true
+  },
+  "live_github": "not tested; synthetic transport only",
+  "shared_authenticated_approvals": "not implemented; client deployment decision required if needed",
+  "client_signoff": "pending"
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-13T18:18:08.414326+00:00",
+  "status": "workspace_open_extension_ready_codex_mcp_enabled",
+  "engine_version": "0.6.0",
+  "scope": {
+    "environment": "personal-development",
+    "workspace": "context-engine-and-scratch",
+    "sources": [
+      "engine",
+      "scratch"
+    ],
+    "excluded": [
+      "projects/pet-food/*",
+      ".context-engine/*",
+      "evaluation/*.json",
+      "vscode-extension/package-lock.json"
+    ],
+    "source_note": "Personal/public-safe working trees, including uncommitted files; existing excluded artifacts remain excluded. No client repositories."
+  },
+  "setup": {
+    "directory": ".context-engine/dogfood",
+    "workspace_file": ".context-engine/dogfood/workspace/context-engine.code-workspace",
+    "launcher": ".context-engine/dogfood/context",
+    "uses": "Live engine checkout and existing prepared Python wrapper",
+    "runtime_adjustment": "Machine-local generated commands preserve .context-engine/toolbin/python3 instead of the underlying sys.executable. Generic renderer has not been changed.",
+    "existing_agent_configuration_changed": false,
+    "editor_launched": false,
+    "watcher_left_running": false
+  },
+  "observations": {
+    "initial_files": 171,
+    "initial_index_seconds": 0.974,
+    "final_files": {
+      "engine": 143,
+      "scratch": 30
+    },
+    "scan_errors": {
+      "engine": [],
+      "scratch": []
+    },
+    "parser_errors": [],
+    "incremental_refresh_seconds": 0.309,
+    "incremental_changed_files": 3,
+    "post_refresh_search_seconds": 0.418,
+    "timing_note": "Single observations on this developer machine; no repeated distribution, comparison or production performance claim."
+  },
+  "checks": {
+    "generated_stdio_command_without_inherited_framework_environment": "pass",
+    "mcp_initialize_and_tool_listing": "pass",
+    "listed_tools": 15,
+    "same_query_evidence_from_both_repos": "pass",
+    "exact_implementation_lookup_and_hash_checked_read": "pass",
+    "wrong_hash_withheld": "pass",
+    "excluded_project_not_searchable_or_readable": "pass",
+    "javascript_definition_lookup": "pass",
+    "tracked_change_brief_with_omissions": "pass",
+    "instruction_resolution": "pass; no in-scope repository AGENTS.md found",
+    "raw_notes_not_auto_approved_knowledge": "pass; approved decision lookup empty",
+    "stale_after_real_document_edits": "pass",
+    "refresh_and_new_scratch_note_discovery": "pass",
+    "generated_status_task_without_inherited_framework_environment": "pass",
+    "native_ide_mcp_attachment": "not exercised; new trusted project session required"
+  },
+  "real_query_examples": {
+    "cross_repository": "vendor code prompts",
+    "implementation": "schedule_preferences (engine, literal)",
+    "scratch_filename": "ranked-feature (scratch, files)"
+  },
+  "gaps": [
+    {
+      "area": "file_coverage",
+      "finding": "requirements-structure.txt returned no file result; .txt is absent from the scanner suffix allowlist.",
+      "follow_up": "Deliberate requirements/build-file coverage, with exclusions and classification verified."
+    },
+    {
+      "area": "runtime_launch",
+      "finding": "Generic workspace rendering captures sys.executable, losing prepared wrapper initialization.",
+      "follow_up": "Preserve configured launcher identity; test generated launches with clean inherited environment."
+    },
+    {
+      "area": "ranking",
+      "finding": "Broad ranked feature opportunities query did not return the named document in its first five hits; filename mode recovered it.",
+      "follow_up": "Evaluate search modes and ranking on actual maintenance questions."
+    },
+    {
+      "area": "change_briefs",
+      "finding": "Current old base and many untracked changes exceed bounded tracked-change coverage.",
+      "observed_omitted_changed_paths": 12,
+      "observed_upstream_omissions": 253,
+      "follow_up": "Inspect actual diffs/new files; scope review tasks and preserve explicit omissions."
+    },
+    {
+      "area": "knowledge",
+      "finding": "New scope has no approved Commonplace decisions.",
+      "follow_up": "Propose durable lessons and review through the ordinary human workflow."
+    }
+  ],
+  "boundary": {
+    "history_enabled": false,
+    "remote_git_enabled": false,
+    "embeddings_enabled": false,
+    "vendor_upload_added": false,
+    "client_material_used": false,
+    "note": "This is our own development record, not an extension usage report or a proposed client feedback schema. Detailed retrieval results stay in ignored local state. Existing approved agent/provider boundary remains separate."
+  },
+  "remaining": [
+    "Use Context Engine tools in a new chat and complete real maintenance changes; record task outcomes."
+  ],
+  "official_reference": "https://learn.chatgpt.com/docs/extend/mcp?surface=cli",
+  "interactive_setup": {
+    "verified_at": "2026-09-13T18:23:45.642842+00:00",
+    "editor_version": "1.137.0",
+    "extension_version_installed": "0.6.0",
+    "workspace_open": true,
+    "source_folders_visible": [
+      "engine",
+      "scratch"
+    ],
+    "extension_health": "ready; 0 changed files; 143 engine and 30 scratch supported files",
+    "refresh": "Running in the new workspace window",
+    "codex_panel": "Open with existing personal account and empty composer",
+    "codex_mcp_settings": "context_engine listed and enabled",
+    "new_agent_prompt_submitted": false,
+    "note": "This UI setup follows the earlier CLI/MCP rehearsal; it does not alter its historical observations. Actual model tool use in a new chat remains for the user."
+  }
+}

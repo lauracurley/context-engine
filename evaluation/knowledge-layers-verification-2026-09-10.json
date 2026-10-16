@@ -1,0 +1,12 @@
+{
+  "release": "0.4.0",
+  "artifact": "context-engine-0.4.0.vsix",
+  "sha256": "f958e0bfc51ee7fe04d00c579eda8ca043eb795c94b4632d537cddfcb5091ac2",
+  "python_tests": 86,
+  "optional_skips": 2,
+  "extension_tests": 25,
+  "quality_gate": "passed",
+  "actual_host": "packaged activation, registered commands, indexing, readiness, synthetic benchmark, workbench passed in isolated local profile",
+  "knowledge_workflows": "core, MCP wire and mocked extension tests; human acceptance pending",
+  "client_launch": "remaining knowledge slices and client acceptance still required"
+}

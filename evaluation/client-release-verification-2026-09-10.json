@@ -1,0 +1,29 @@
+{
+  "release": "0.3.0",
+  "date": "2026-09-10",
+  "artifact": "context-engine-0.3.0.vsix",
+  "sha256": "8ab0f70a675477d53cf4f790ef1588a25cf11d7bdaf0a9624162cb17a454eeb9",
+  "quality": {
+    "python_tests": 85,
+    "python_optional_skipped": 2,
+    "extension_tests": 24,
+    "lint_format_evaluations": "passed"
+  },
+  "actual_vscode_host": {
+    "profile": "isolated local profile on development Mac",
+    "packaged_extension": true,
+    "activation_commands_sidebar_diagnostics": true,
+    "fixture_index_workbench": true,
+    "managed_readiness": true,
+    "synthetic_benchmark": true,
+    "fresh_company_mac": false,
+    "client_agent_account": false
+  },
+  "installation_rehearsal": [
+    "0.2.0",
+    "0.3.0",
+    "0.2.0",
+    "0.3.0"
+  ],
+  "client_signoff": "pending"
+}

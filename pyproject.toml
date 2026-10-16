@@ -1,0 +1,12 @@
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+# Source fixtures and published measurements have intentional formatting/line citations.
+extend-exclude = ["examples", "evaluation", "dist", "vscode-extension/backend"]
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "S602", "S604", "S605", "S606"]
+
+[tool.ruff.format]
+quote-style = "double"

@@ -1,0 +1,267 @@
+{
+  "date": "2026-09-13",
+  "purpose": "Product assessment evidence; synthetic/local developer verification, not a client usage report",
+  "scope": {
+    "repository": "context-engine",
+    "head": "fec84ca",
+    "working_tree": "Contains substantial uncommitted and untracked implementation beyond HEAD",
+    "extension_version": "0.5.1",
+    "mcp_advertised_version": "0.1.0",
+    "artifact": "dist/context-engine-0.5.1.vsix",
+    "artifact_sha256": "0ac2a47852d5bdd12518fbf1399f83e5f7ed0ce1c33259af120079bbc2857ac9",
+    "packaged_python_and_js_source_files_compared": 40,
+    "packaged_source_mismatches": [],
+    "registered_extension_commands": 46
+  },
+  "verification": {
+    "python": {
+      "tests": 108,
+      "optional_skips": 2,
+      "result": "pass",
+      "duration_seconds": 97.478
+    },
+    "javascript": {
+      "tests": 36,
+      "skips": 0,
+      "result": "pass",
+      "duration_seconds": 7.661
+    },
+    "initial_invocation_corrections": [
+      "Extracted Python framework required the existing toolbin wrapper/environment.",
+      "JavaScript tests required extension working directory, release Node/Python PATH, and inherited Python framework environment."
+    ],
+    "not_run": [
+      "Complete scripts/check.py lint/format/repackage gate",
+      "New native VS Code host usability test",
+      "Fresh company-managed Mac",
+      "Real agent account integration",
+      "Client task success or model inference",
+      "Comprehensive vendor-boundary/dependency audit"
+    ]
+  },
+  "targeted_synthetic_observations": {
+    "search": {
+      "full_source_scans": 2,
+      "state": "ready",
+      "items": 1
+    },
+    "read": {
+      "full_source_scans": 3,
+      "state": "ready",
+      "items": 1
+    },
+    "change_brief_12_paths": {
+      "full_source_scans": 63,
+      "state": "ready",
+      "items": 12
+    },
+    "change_only_crawler_interval": {
+      "same_store": false,
+      "old_knowledge_records": 1,
+      "new_knowledge_records": 0,
+      "new_index_state": "unindexed"
+    }
+  },
+  "probe_reproduction": [
+    "Create a temporary Git repository containing 12 Python files, each with a distinct two-line function.",
+    "Commit fixture; create a one-source manifest and temporary state directory; index.",
+    "Change each return value and reindex.",
+    "Wrap Engine.scan with unittest.mock.patch(wraps=engine.scan) and count calls during a compact search, a two-line read, and a 32000-byte change brief against HEAD.",
+    "Create and approve one practice with current evidence.",
+    "Create another manifest with identical sources/environment/workspace and only crawler.interval=600 added; initialize Engine against the same state root.",
+    "Compare store identity, record counts, and index state; old store is retained."
+  ],
+  "synthetic_p1_evaluation": {
+    "schema_version": 1,
+    "suite": "p1-evidence-1",
+    "corpus": "generated-v1",
+    "report_kind": "synthetic_evidence_evaluation",
+    "cases": [
+      {
+        "case": "identifier",
+        "split": "development",
+        "sequence_byte_budget": 3000,
+        "baseline": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 883,
+          "citation_hashes_current": true,
+          "p50_ms": 412.701,
+          "p95_ms": 419.985
+        },
+        "candidate": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 850,
+          "citation_hashes_current": true,
+          "p50_ms": 277.495,
+          "p95_ms": 279.914
+        }
+      },
+      {
+        "case": "cross_repo_contract",
+        "split": "development",
+        "sequence_byte_budget": 3000,
+        "baseline": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 1189,
+          "citation_hashes_current": true,
+          "p50_ms": 410.275,
+          "p95_ms": 414.151
+        },
+        "candidate": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 1511,
+          "citation_hashes_current": true,
+          "p50_ms": 274.289,
+          "p95_ms": 281.226
+        }
+      },
+      {
+        "case": "missing_answer",
+        "split": "held_out",
+        "sequence_byte_budget": 3000,
+        "baseline": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 581,
+          "citation_hashes_current": true,
+          "p50_ms": 413.507,
+          "p95_ms": 414.676
+        },
+        "candidate": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 555,
+          "citation_hashes_current": true,
+          "p50_ms": 273.138,
+          "p95_ms": 276.535
+        }
+      },
+      {
+        "case": "outside_scope",
+        "split": "held_out",
+        "sequence_byte_budget": 3000,
+        "baseline": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 581,
+          "citation_hashes_current": true,
+          "p50_ms": 415.484,
+          "p95_ms": 416.827
+        },
+        "candidate": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 555,
+          "citation_hashes_current": true,
+          "p50_ms": 271.585,
+          "p95_ms": 274.668
+        }
+      },
+      {
+        "case": "kotlin_ambiguity",
+        "split": "held_out",
+        "sequence_byte_budget": 3000,
+        "baseline": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 1169,
+          "citation_hashes_current": true,
+          "p50_ms": 417.5,
+          "p95_ms": 419.651
+        },
+        "candidate": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 1037,
+          "citation_hashes_current": true,
+          "p50_ms": 279.93,
+          "p95_ms": 299.181
+        }
+      },
+      {
+        "case": "change_with_exception",
+        "split": "held_out",
+        "sequence_byte_budget": 6000,
+        "baseline": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 3,
+          "response_bytes": 2528,
+          "citation_hashes_current": true,
+          "p50_ms": 962.32,
+          "p95_ms": 965.779
+        },
+        "candidate": {
+          "passed": true,
+          "iterations": 3,
+          "calls": 1,
+          "response_bytes": 2419,
+          "citation_hashes_current": true,
+          "p50_ms": 1227.681,
+          "p95_ms": 1228.235
+        }
+      }
+    ],
+    "checks": {
+      "branch_reuse": true,
+      "branch_isolation": true,
+      "stale_code_withheld": true,
+      "stale_rule_withheld": true,
+      "refresh_recovered": true,
+      "deleted_evidence_withheld": true
+    },
+    "indexing": {
+      "cold": {
+        "ms": 238.262,
+        "hits": 0,
+        "computed": 124,
+        "max_payload_bytes": 16777216
+      },
+      "warm": {
+        "ms": 157.983,
+        "hits": 0,
+        "computed": 0,
+        "max_payload_bytes": 16777216
+      },
+      "branch_b": {
+        "ms": 158.558,
+        "hits": 0,
+        "computed": 1,
+        "max_payload_bytes": 16777216
+      },
+      "return_a": {
+        "ms": 155.673,
+        "hits": 1,
+        "computed": 0,
+        "max_payload_bytes": 16777216
+      }
+    },
+    "python_traced_peak_bytes": 2442409,
+    "store_bytes": 1507736,
+    "actual_model_tokens": null,
+    "model_task_completion": "not measured",
+    "passed": true,
+    "limits": "Synthetic evidence tasks only; no model inference, billing or production scale claims. Three-run p95 is the maximum sample. Traced memory excludes native allocations."
+  },
+  "limits": [
+    "Scan counts expose repeated work; they are not production latency measurements.",
+    "Three-run timing samples are directional and include no model inference.",
+    "Both P1 baseline and candidate pass all six evidence cases; this does not establish better client task outcomes.",
+    "Profile change selected another store; the original knowledge was not deleted.",
+    "Findings and recommendations are an assessment, not adopted implementation requirements."
+  ]
+}

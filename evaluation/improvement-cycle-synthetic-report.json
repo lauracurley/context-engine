@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "engine_release": "0.3.0",
+  "report_kind": "product_usage_aggregate",
+  "period_days_bucket": "1-7",
+  "operations": {
+    "search_code": {
+      "calls": 100,
+      "outcomes": {
+        "success": 60,
+        "empty": 0,
+        "stale": 40,
+        "unavailable": 0,
+        "cancelled": 0,
+        "internal_error": 0
+      },
+      "duration_ms_bins": {
+        "le_100": 0,
+        "101_500": 100,
+        "501_2000": 0,
+        "gt_2000": 0
+      },
+      "emitted_payload_bytes": 120000,
+      "duplicate_candidates_suppressed": 0
+    }
+  },
+  "token_usage": {
+    "availability": "unavailable"
+  }
+}

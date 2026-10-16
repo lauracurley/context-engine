@@ -1,0 +1,117 @@
+body {
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+  font-family: var(--vscode-font-family);
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+nav {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  max-height: 90vh;
+  overflow: auto;
+}
+nav a {
+  display: block;
+  padding: 0.35rem;
+  color: var(--vscode-textLink-foreground);
+  overflow-wrap: anywhere;
+}
+main {
+  max-width: 1000px;
+}
+p {
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+h1,
+h2 {
+  border-bottom: 1px solid var(--vscode-panel-border);
+  padding-bottom: 0.5rem;
+}
+svg {
+  width: 100%;
+}
+svg rect {
+  fill: var(--vscode-editor-background);
+  stroke: currentColor;
+}
+svg text {
+  fill: currentColor;
+  font-size: 12px;
+}
+figcaption {
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    position: static;
+    max-height: 200px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  gap: 3rem;
+}
+main {
+  min-width: 0;
+  max-width: 80ch;
+}
+h1 {
+  margin-top: 3rem;
+  font-size: 2rem;
+}
+h1:first-child {
+  margin-top: 0;
+}
+h2 {
+  margin-top: 2.5rem;
+}
+h3 {
+  margin-top: 1.75rem;
+}
+li {
+  line-height: 1.65;
+  margin: 0.5rem 0;
+  overflow-wrap: anywhere;
+}
+pre {
+  padding: 1rem;
+  overflow: auto;
+  background: var(--vscode-textCodeBlock-background);
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 6px;
+  line-height: 1.5;
+}
+code {
+  font-family: var(--vscode-editor-font-family, monospace);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+nav a:focus-visible {
+  outline: 2px solid var(--vscode-focusBorder);
+}
+.table-scroll {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  line-height: 1.5;
+}
+th,
+td {
+  padding: 0.65rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--vscode-panel-border);
+}

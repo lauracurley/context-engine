@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-11",
+  "quality_gate": "passed",
+  "python_suite": "Ran 100 tests in 117.407s",
+  "optional_python_skips": 2,
+  "focused_final_p1_tests": 10,
+  "extension_tests": 29,
+  "evidence_suite": "p1-evidence-1",
+  "evidence_passed": true,
+  "python": "3.13.15",
+  "node": "24.21.0",
+  "artifact": "context-engine-0.5.1.vsix",
+  "artifact_sha256": "0160a7a29d14ec1c742b4d8bc4e9b519032eee6e2272d03c83cda18986f46fa8",
+  "limitations": [
+    "No live GitHub or company-data test",
+    "No actual model inference or billing measurement",
+    "No new native VS Code host smoke; command harness and packaged backend tested"
+  ],
+  "runtime_dependencies_added": []
+}

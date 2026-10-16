@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "storage_roots": ["/REPLACE/company-controlled/context-engine"],
+  "source_roots": ["/REPLACE/company-controlled/checkouts"],
+  "allow_history": false,
+  "allow_remote_git": false,
+  "allow_embeddings": false
+}

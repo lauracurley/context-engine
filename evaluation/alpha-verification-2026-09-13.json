@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-13T17:40:45.235614+00:00",
+  "release": "0.6.0",
+  "status": "alpha_candidate_with_editor_launch_incident",
+  "source": {
+    "base_commit": "fec84caaf3f39d5d651f7805f3702ce71f51a9b8",
+    "working_tree": "Existing uncommitted work preserved; package built from current working tree.",
+    "changed_files_from_turn_backup": [
+      "README.md",
+      "context_engine/__init__.py",
+      "context_engine/__main__.py",
+      "context_engine/architecture.py",
+      "context_engine/benchmark.py",
+      "context_engine/change_brief.py",
+      "context_engine/core.py",
+      "context_engine/crawler.py",
+      "context_engine/knowledge.py",
+      "context_engine/navigation.py",
+      "context_engine/usage.py",
+      "context_engine/vscode.py",
+      "docs/CLIENT-SETUP.md",
+      "docs/CONFIGURATION.md",
+      "docs/LAUNCH-WORKFLOWS.md",
+      "docs/security/CLIENT-TEST-READINESS.md",
+      "docs/security/LAUNCH-ACCEPTANCE-0.5.md",
+      "tests/test_architecture.py",
+      "tests/test_crawler.py",
+      "tests/test_p1.py",
+      "tests/test_vscode.py",
+      "vscode-extension/CHANGELOG.md",
+      "vscode-extension/README.md",
+      "vscode-extension/media/workbench.css",
+      "vscode-extension/media/workbench.js",
+      "vscode-extension/package-lock.json",
+      "vscode-extension/package.json",
+      "vscode-extension/src/controller.js",
+      "vscode-extension/src/extension.js",
+      "vscode-extension/src/packs.js",
+      "vscode-extension/src/profiles.js",
+      "vscode-extension/src/runtime.js",
+      "vscode-extension/src/workbench.js",
+      "vscode-extension/test/controller.test.js",
+      "vscode-extension/test/extension.test.js",
+      "vscode-extension/src/knowledge-editor.js",
+      "vscode-extension/test/knowledge-editor.test.js",
+      "docs/ALPHA-ACCEPTANCE.md"
+    ]
+  },
+  "artifact": {
+    "path": "dist/context-engine-0.6.0.vsix",
+    "sha256": "7f3cc44d05628b08135a2fc9c7201a2791032089be5cc54be7f356722f62a33b",
+    "bytes": 158368,
+    "member_count": 51,
+    "matched_source_assets": 48,
+    "source_sha256": {
+      "vscode-extension/CHANGELOG.md": "55f300e9852c14840fa03499e25608007066832fa0f853e377036db7a7ed3e76",
+      "vscode-extension/README.md": "4a4a47b86c30d9cd5d73ba0566b25fa26ff7b3c76a33087b51d2fac82a0c1fad",
+      "context_engine/__init__.py": "3e32b34cdda3d052a850363b885dc7259486e2fc69f7031f95b11eed6fb2e5ef",
+      "context_engine/__main__.py": "8dc9f414282105d8e2706bab2eef7c516507df43fe4a120f66ba596357f8162c",
+      "context_engine/architecture.py": "a057e8704518656ef9cd51df24ce3e3630bd18fc7aca1b58bbd5f18a4bef652e",
+      "context_engine/artifacts.py": "c1d15ac4dc1ec3fe1d2ed2ac874d5f65d7cd32ea08ca8e9c33b8f5ebae58cdbd",
+      "context_engine/benchmark.py": "7efa452684e182be431daeacb312a7c134e6a7fc152477fded6da2d9182971a6",
+      "context_engine/budget.py": "923274c663e2cae567a3ed3ba9bd61a5f8ac39f4a18c852b494b3fa677ac650c",
+      "context_engine/change_brief.py": "1a62db17d5de8cc0d13780c68b4a52036b3152227122749a11adc5e696cbac44",
+      "context_engine/chunking.py": "ba083e49f0b8d1154aaedff465355a4f7d0f1b2e36e2a495ab5444aed716b43d",
+      "context_engine/commonplace.py": "ffa1b58d9aac8bf388c2245d3ab0b6c7dfdbe3397e64c91d8892f5272240470d",
+      "context_engine/core.py": "ed7bf76ace3b19635d099336f7d969530981d3f66d402d20c566a7b9b0b903f9",
+      "context_engine/crawler.py": "bfbdb0b3a6d0267000c50d1e11b4ba52134978664533e10db09cd7a17f237869",
+      "context_engine/embeddings.py": "dcd9850eda5ced33a8e27adc1eed160a3a40ff8dd8c45b045cf6720d090ca5f7",
+      "context_engine/evaluation_p1.py": "2cc31f3b33d876e451bde939afd2d0b945425d1e7c8a6a360fc6d476bd99f4ae",
+      "context_engine/governance.py": "832abc00b4f667dc4dd61395ce1600f33559b13473d1065b8f380b2ea6f70866",
+      "context_engine/history.py": "e934f83d8170f7acc922b54e843371e6c965b9d35393810fff2883c3828e1d4a",
+      "context_engine/history_providers.py": "41dad8d8f1ea45edd028a9b6a99742f7c6c6db0823854c46d7d74ae71dd424f5",
+      "context_engine/instructions.py": "abdf23e50dfe83136123310326ae820e83783d5a0c457a5aaa2c43662298f1d8",
+      "context_engine/knowledge.py": "a5cf9ba673c449174a516ccc685a1e9b29d10dee88e9581e5bf17e8ef3f26767",
+      "context_engine/kotlin.py": "9d0b2753f5bec5cf064a1a37fd39248e4eb42e942e97f6cabf38bd7d2abf34b4",
+      "context_engine/locking.py": "f2630d4e8a5f7da44b1ac42bd956b105105fd3a8fca3fb97b36cc9ec0cab46ea",
+      "context_engine/maintenance.py": "12cb5e860ccf6cacbd1d402a54eb878a515deb3093bc28b0338aff759d58a85e",
+      "context_engine/managed.py": "cdbe9beb4d7c8bd97070f6b236263653b8b0fba3703b1b9761d8f171290863bf",
+      "context_engine/navigation.py": "9fe49204fd4f1a3f831255d4310efe0ed0b16acfd276f1bdc72aef1ab2056346",
+      "context_engine/policy.py": "987ac31d92b2e240d73f81f96eeb419d0881351321bf29bd85fceebfab6d51b0",
+      "context_engine/readiness.py": "777d9defbb37192ee9eb833250bd5f538e5a1039fec5a9dd4cfef60c62c831ec",
+      "context_engine/retrieval_task.py": "47e8caf5face035d28346e78bd74a203b278fae531732ae08869bdc34eb2011b",
+      "context_engine/review_ingest.py": "cb3dff4d6f9b85034acaeb3ea24df9a118a5439ec59231f75305f4c37253bf99",
+      "context_engine/semantic.py": "d3d24790a99b3997b09fe6793d1dfd424a979ee9de6eb1baf0cf2efd171444ee",
+      "context_engine/setup.py": "cfacab9a621ec75bc86f7c196859514b10434ff87a8c73aa3233e255606be1b1",
+      "context_engine/structure.py": "d05eaeb776e6110bb106d3b850820a41b93fce6a9a244cfb40bd62a8cf577b65",
+      "context_engine/usage.py": "676bb951a9cff86e9e4e80b825d3139e595622753945183d2da124ca6304d4fc",
+      "context_engine/vscode.py": "a589aac1d89f9e92e1ccef5174a528fbc68c13014286132b49298e0e12e221a1",
+      "vscode-extension/media/context.svg": "d4aadda4a5c8219453f196eb88d51a5faa893c9c288a11cea8727d023cdd7991",
+      "vscode-extension/media/wiki.css": "a1196862fa7f08ec86624ae0beed5789648c39672e8e05e5862e2fe77018beda",
+      "vscode-extension/media/workbench.css": "e2b30a638de1bf7835acf37dc9d9023146a6a07eddb7a28712a2dc1f155f2732",
+      "vscode-extension/media/workbench.js": "e99bced12c915973fe010bb2e0260a9126362e7a15b85c4ff9412360c2d487b1",
+      "vscode-extension/package.json": "f31c751fa5a9e51235b4ce3e1d39e3a6d9f6733c3c89e0b00e025afc888927ca",
+      "vscode-extension/src/controller.js": "fc06aa1771e311b79eed0d2918a8b7d90fd1849ac4f02df5dd1f43c2f3765074",
+      "vscode-extension/src/extension.js": "267e7d5d3e1291db87f881625fefbcc07feb84895e80585ddfd591643a549d1e",
+      "vscode-extension/src/knowledge-editor.js": "edd906abab6512611a818b09171b2637548c401ce4223aa66dbd0aa0f6e03e12",
+      "vscode-extension/src/packs.js": "e48d3898b2aa97e380e140334b601df1630d5b4df362457c55c6dd08267c0b9b",
+      "vscode-extension/src/profiles.js": "3faa892413ef891f8bafff0bea07dd792bc21cf30dfdb18fe871ce83cfa19071",
+      "vscode-extension/src/runtime.js": "99b3408220718d8d0d5c34ad7a9ef47e51630eea3128c5c16369d29d41a12605",
+      "vscode-extension/src/usage-report.js": "bb260ebd7d690cfb07d87690110c5efd5dc74f41c5b25cc299ad9c921350c2b4",
+      "vscode-extension/src/wiki.js": "3fbd6ef3bcd473ac154d3d9c0a28ddc0029ca88959e4f75a4339a8459dd45f7a",
+      "vscode-extension/src/workbench.js": "6b29115753e26a46f357b0426060a5798c2378774454e82eb53b328d1c72b2d8"
+    },
+    "payload_sha256": "c0908a515873ca153701dfc8740ac951117cdfa9359265908ac8f3c80fe54d55",
+    "native_rehearsal_payload_matches": true,
+    "note": "ZIP timestamps can vary on rebuild; use this exact archive hash or the complete payload digest to identify it."
+  },
+  "verification": {
+    "quality_command": "python3 scripts/check.py",
+    "quality_passed": true,
+    "quality_log": "/private/tmp/context-alpha-quality-final.log",
+    "python": {
+      "tests": 112,
+      "skipped": 2,
+      "result": "pass",
+      "skips": "Optional model tests"
+    },
+    "extension": {
+      "tests": 37,
+      "result": "pass"
+    },
+    "lint_and_format": "pass",
+    "native_vscode": {
+      "result": "pass",
+      "editor_version": "1.137.0",
+      "isolated_profile": true,
+      "synthetic_sources_only": true,
+      "checks": [
+        "activation",
+        "command registration",
+        "sidebar",
+        "diagnostics",
+        "profile import",
+        "real indexing",
+        "managed local readiness",
+        "synthetic benchmark",
+        "wiki and workbench creation",
+        "workspace health command"
+      ],
+      "source_payload_matches_final_archive": true,
+      "checkpoint": "/private/tmp/context-alpha-host-gco3ugrc/passed.json",
+      "trust_note": "The disposable automated host used disabled workspace-trust prompts; trust rejection is covered separately by extension tests. This is not a client trust/onboarding approval.",
+      "exit_code": 0,
+      "scope_note": "Passing synthetic host checks on 1.137.0 only; a separate 1.87.2 launch crashed. No general editor-stability or older-version compatibility claim."
+    },
+    "ui_walkthrough": {
+      "result": "pass",
+      "environment": "Local browser harness with unchanged renderer/controller, real engine and invented Git fixture; VS Code-specific editor, dialog and clipboard APIs simulated.",
+      "flows": [
+        "health display",
+        "decision evidence picker and guided form",
+        "save as unapproved proposal",
+        "separate review action",
+        "readable change brief with approved guidance, exceptions and structured details",
+        "whole-brief task-pack pin",
+        "local IDE handoff screen",
+        "schedule edit retains approved knowledge and existing task pack"
+      ],
+      "harness_stopped": true,
+      "browser_tab_closed": true
+    },
+    "other_editor_attempt": {
+      "version": "1.87.2",
+      "result": "startup_crashed_compatibility_not_verified",
+      "installation": "Additional copy in Downloads; selected during compatibility testing.",
+      "reason": "Two local macOS crash reports identify Code 1.87.2. Both processes terminated within one second of launch on the native main thread. The isolated profile contains no host checkpoint or VS Code logs.",
+      "observed_at": [
+        "2026-09-13T13:22:50-04:00",
+        "2026-09-13T13:22:57-04:00"
+      ],
+      "signals": [
+        "EXC_BREAKPOINT / SIGTRAP",
+        "EXC_BAD_ACCESS / SIGSEGV"
+      ],
+      "os_version": "macOS 15.7.9 (24G830)",
+      "assessment": "The version and timing identify the older editor attempted during verification. The reports do not establish the underlying native failure or implicate Context Engine code; no extension-host checkpoint was reached.",
+      "handling": "Do not relaunch this copy as an automatic fallback. Use an explicit editor installation and record both launch failures and host-test results. Raw crash reports remain outside the repository and were not uploaded by this investigation."
+    },
+    "evaluations": {
+      "evaluate.py": {
+        "cases": [
+          {
+            "environment": "acme",
+            "query": "task.requested priority",
+            "expected_sources": [
+              "api",
+              "worker"
+            ],
+            "retrieved_sources": [
+              "api",
+              "worker"
+            ],
+            "passed": true
+          },
+          {
+            "environment": "acme",
+            "query": "UNKNOWN_TEMPLATE",
+            "expected_sources": [
+              "api"
+            ],
+            "retrieved_sources": [
+              "api"
+            ],
+            "passed": true
+          },
+          {
+            "environment": "acme",
+            "query": "COMPLETED",
+            "expected_sources": [
+              "worker"
+            ],
+            "retrieved_sources": [
+              "worker"
+            ],
+            "passed": true
+          },
+          {
+            "environment": "harbor",
+            "query": "parcelCode",
+            "expected_sources": [
+              "dispatch",
+              "handbook"
+            ],
+            "retrieved_sources": [
+              "dispatch",
+              "handbook"
+            ],
+            "passed": true
+          },
+          {
+            "environment": "harbor",
+            "query": "delivery receipt",
+            "expected_sources": [
+              "handbook"
+            ],
+            "retrieved_sources": [
+              "handbook"
+            ],
+            "passed": true
+          }
+        ],
+        "passed": 5,
+        "total": 5
+      },
+      "evaluate_efficiency.py": {
+        "fixture": "acme plus 100 distractor files",
+        "measurement": "JSON UTF-8 bytes; no model inference",
+        "cases": [
+          {
+            "task": "scoped_identifier",
+            "expected": [
+              "api/tasks.py"
+            ],
+            "retrieved": [
+              "api/tasks.py"
+            ],
+            "bytes": 1029,
+            "citations_valid": true,
+            "passed": true
+          },
+          {
+            "task": "cross_service_contract",
+            "expected": [
+              "worker/consumer.py"
+            ],
+            "retrieved": [
+              "worker/consumer.py"
+            ],
+            "bytes": 1150,
+            "citations_valid": true,
+            "passed": true
+          },
+          {
+            "task": "no_invented_dependency",
+            "expected": [],
+            "retrieved": [],
+            "bytes": 506,
+            "citations_valid": true,
+            "passed": true
+          },
+          {
+            "task": "missing_identifier",
+            "expected": [],
+            "retrieved": [],
+            "bytes": 550,
+            "citations_valid": true,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "evaluate_p1.py": {
+        "schema_version": 1,
+        "suite": "p1-evidence-1",
+        "corpus": "generated-v1",
+        "report_kind": "synthetic_evidence_evaluation",
+        "cases": [
+          {
+            "case": "identifier",
+            "split": "development",
+            "sequence_byte_budget": 3000,
+            "baseline": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 883,
+              "citation_hashes_current": true,
+              "p50_ms": 412.615,
+              "p95_ms": 415.765
+            },
+            "candidate": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 850,
+              "citation_hashes_current": true,
+              "p50_ms": 274.959,
+              "p95_ms": 276.121
+            }
+          },
+          {
+            "case": "cross_repo_contract",
+            "split": "development",
+            "sequence_byte_budget": 3000,
+            "baseline": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 1189,
+              "citation_hashes_current": true,
+              "p50_ms": 413.343,
+              "p95_ms": 420.583
+            },
+            "candidate": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 1511,
+              "citation_hashes_current": true,
+              "p50_ms": 274.733,
+              "p95_ms": 280.628
+            }
+          },
+          {
+            "case": "missing_answer",
+            "split": "held_out",
+            "sequence_byte_budget": 3000,
+            "baseline": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 581,
+              "citation_hashes_current": true,
+              "p50_ms": 416.62,
+              "p95_ms": 418.53
+            },
+            "candidate": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 555,
+              "citation_hashes_current": true,
+              "p50_ms": 274.851,
+              "p95_ms": 316.848
+            }
+          },
+          {
+            "case": "outside_scope",
+            "split": "held_out",
+            "sequence_byte_budget": 3000,
+            "baseline": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 581,
+              "citation_hashes_current": true,
+              "p50_ms": 415.849,
+              "p95_ms": 423.842
+            },
+            "candidate": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 555,
+              "citation_hashes_current": true,
+              "p50_ms": 275.491,
+              "p95_ms": 275.654
+            }
+          },
+          {
+            "case": "kotlin_ambiguity",
+            "split": "held_out",
+            "sequence_byte_budget": 3000,
+            "baseline": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 1169,
+              "citation_hashes_current": true,
+              "p50_ms": 415.913,
+              "p95_ms": 416.1
+            },
+            "candidate": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 1037,
+              "citation_hashes_current": true,
+              "p50_ms": 284.038,
+              "p95_ms": 286.658
+            }
+          },
+          {
+            "case": "change_with_exception",
+            "split": "held_out",
+            "sequence_byte_budget": 6000,
+            "baseline": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 3,
+              "response_bytes": 2528,
+              "citation_hashes_current": true,
+              "p50_ms": 832.861,
+              "p95_ms": 839.028
+            },
+            "candidate": {
+              "passed": true,
+              "iterations": 3,
+              "calls": 1,
+              "response_bytes": 2419,
+              "citation_hashes_current": true,
+              "p50_ms": 399.311,
+              "p95_ms": 403.353
+            }
+          }
+        ],
+        "checks": {
+          "branch_reuse": true,
+          "branch_isolation": true,
+          "stale_code_withheld": true,
+          "stale_rule_withheld": true,
+          "refresh_recovered": true,
+          "deleted_evidence_withheld": true
+        },
+        "indexing": {
+          "cold": {
+            "ms": 235.084,
+            "hits": 0,
+            "computed": 124,
+            "max_payload_bytes": 16777216
+          },
+          "warm": {
+            "ms": 155.271,
+            "hits": 0,
+            "computed": 0,
+            "max_payload_bytes": 16777216
+          },
+          "branch_b": {
+            "ms": 160.1,
+            "hits": 0,
+            "computed": 1,
+            "max_payload_bytes": 16777216
+          },
+          "return_a": {
+            "ms": 159.085,
+            "hits": 1,
+            "computed": 0,
+            "max_payload_bytes": 16777216
+          }
+        },
+        "python_traced_peak_bytes": 1892662,
+        "store_bytes": 1507736,
+        "actual_model_tokens": null,
+        "model_task_completion": "not measured",
+        "passed": true,
+        "limits": "Synthetic evidence tasks only; no model inference, billing or production scale claims. Three-run p95 is the maximum sample. Traced memory excludes native allocations."
+      },
+      "evaluate_context.py": {
+        "measurement": "UTF-8 bytes of complete compact JSON payload; not actual model tokens",
+        "fixture": "examples/acme.json (two tiny Python modules)",
+        "cases": [
+          {
+            "query": "task.requested priority",
+            "same_files": true,
+            "files": [
+              "api/tasks.py",
+              "worker/consumer.py"
+            ],
+            "full_payload_bytes": 4798,
+            "compact_payload_bytes": 1598,
+            "outline_payload_bytes": 969,
+            "compact_reduction_percent": 66.7
+          },
+          {
+            "query": "UNKNOWN_TEMPLATE",
+            "same_files": true,
+            "files": [
+              "api/tasks.py"
+            ],
+            "full_payload_bytes": 3852,
+            "compact_payload_bytes": 1029,
+            "outline_payload_bytes": 729,
+            "compact_reduction_percent": 73.3
+          },
+          {
+            "query": "COMPLETED",
+            "same_files": true,
+            "files": [
+              "worker/consumer.py"
+            ],
+            "full_payload_bytes": 3773,
+            "compact_payload_bytes": 896,
+            "outline_payload_bytes": 735,
+            "compact_reduction_percent": 76.3
+          }
+        ],
+        "identifier_trajectory": {
+          "routed": {
+            "payload_bytes": 1645,
+            "tool_calls": 2,
+            "source_scans": 4
+          },
+          "status_overview_prefix": {
+            "payload_bytes": 5828,
+            "tool_calls": 4,
+            "source_scans": 7
+          },
+          "same_read_evidence": true
+        },
+        "overview": {
+          "bytes": 1713,
+          "budget": 2000,
+          "shared_contract_cited": true,
+          "unchanged_bytes": 408,
+          "unchanged_state": "unchanged"
+        },
+        "limitations": [
+          "Synthetic smoke fixture; no production quality or scale claim",
+          "Fewer bytes does not establish equivalent task success",
+          "Semantic quality remains a separate evaluation"
+        ],
+        "passed": true
+      }
+    },
+    "regressions": [
+      "schedule changes preserve manifest bytes, store identity, index and approved knowledge across reopen",
+      "profile schedule saves preserve task packs; content changes create explicit separate scope",
+      "managed handoff avoids terminal launcher, validates current citations, rejects stale copy",
+      "guided proposals remain withheld until review; concurrent revisions cannot be overwritten",
+      "twelve-file brief performs two source scans and withholds mid-request drift",
+      "graph preserves unindexed and unavailable-source states",
+      "Back restores the prior query with its evidence",
+      "generated workspace reuse preserves edited copies"
+    ]
+  },
+  "performance": {
+    "fixture": "Twelve tracked changed Python files",
+    "change_brief_full_source_scans_before": 63,
+    "change_brief_full_source_scans_after": 2,
+    "after_guard": "Initial request snapshot plus final fresh scan; no latency, token or downstream task-success claim."
+  },
+  "boundary": {
+    "vendor_content_transfer_added": false,
+    "new_runtime_dependencies": false,
+    "new_network_integration": false,
+    "new_uploader": false,
+    "usage_schema_expanded": false,
+    "review": "Local explicit maintainer review remains sufficient. Existing optional client policies remain effective.",
+    "company_content": "Remains client-controlled; approved agent/provider behavior is separate."
+  },
+  "remaining_acceptance": [
+    "Fresh client-managed Mac with prepared runtime",
+    "Real approved IDE account and current MCP scope verification",
+    "Representative client task outcomes and maintenance effort",
+    "Two-installation Commonplace transfer and client recovery rehearsal"
+  ],
+  "known_limits": [
+    "Guided new drafts use one supporting citation; additional citations, relationships and review provenance use advanced local workflows",
+    "Unsaved forms are not durable across closing or reloading VS Code",
+    "Operational schedule updates preserve data through Profile/schedule, but direct manifest edits and scope/retrieval changes still select configuration-specific stores",
+    "Health reports local checks and observed editor tasks, not live account/MCP connection status",
+    "Commonplace import/export is manual; no automatic sync or shared approval service",
+    "Change briefs remain bounded tracked-change context with explicit omissions and inferred tests/relationships"
+  ]
+}

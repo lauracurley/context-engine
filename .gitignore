@@ -2,3 +2,10 @@
 __pycache__/
 *.pyc
 .venv/
+
+dist/
+vscode-extension/backend/
+vscode-extension/node_modules/
+.ruff_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-13",
+  "increment": "Fix project-review findings 1-5",
+  "findings": {
+    "1": "fixed with regression coverage",
+    "2": "fixed with regression coverage",
+    "3": "fixed with regression coverage",
+    "4": "fixed with regression coverage",
+    "5": "fixed with regression coverage"
+  },
+  "artifact": "dist/context-engine-0.5.1.vsix",
+  "sha256": "0ac2a47852d5bdd12518fbf1399f83e5f7ed0ce1c33259af120079bbc2857ac9",
+  "packaged_source_matches": true,
+  "changed_files": [
+    "context_engine/architecture.py",
+    "context_engine/core.py",
+    "context_engine/knowledge.py",
+    "context_engine/maintenance.py",
+    "context_engine/setup.py",
+    "context_engine/vscode.py",
+    "docs/CONFIGURATION.md",
+    "docs/CORE-GUIDE.md",
+    "docs/KNOWLEDGE-MAINTENANCE.md",
+    "tests/test_maintenance.py",
+    "tests/test_p1.py",
+    "tests/test_setup.py",
+    "tests/test_vscode.py",
+    "vscode-extension/README.md",
+    "vscode-extension/package.json",
+    "vscode-extension/src/controller.js",
+    "vscode-extension/src/extension.js",
+    "vscode-extension/src/runtime.js",
+    "vscode-extension/test/controller.test.js",
+    "vscode-extension/test/extension.test.js",
+    "vscode-extension/test/runtime.test.js"
+  ],
+  "checks": {
+    "python_suite": {
+      "tests": 108,
+      "skips": 2,
+      "result": "passed",
+      "runtime": "prepared Python 3.13.15"
+    },
+    "focused_python_suite": {
+      "tests": 23,
+      "result": "passed"
+    },
+    "javascript_suite": {
+      "tests": 36,
+      "skips": 0,
+      "result": "passed",
+      "runtime": "Node 24.21.0, standalone Python 3.9.6 for backend subprocesses"
+    },
+    "prepared_runtime_extension_mcp_round_trip": "passed with runtime environment preserved",
+    "ruff_lint_format": "passed",
+    "eslint_prettier": "passed",
+    "smoke_efficiency_p1_context_evaluations": "passed",
+    "local_document_links": "passed"
+  },
+  "runner_note": "scripts/check.py passed all Python/lint/evaluation stages. Its npm stage failed the new integration fixture when the relocated macOS runtime lost DYLD environment across npm shell launch. npm run verify was rerun successfully with standalone Python; the same integration also passed with the prepared runtime environment preserved. No single-pass full-gate claim.",
+  "upgrade": "Existing core-generated workspaces must map existing absolute manifest paths to the original MCP state directories using contextEngine.statePaths. No stores are merged.",
+  "limitations": [
+    "No new native VS Code host or client-account rehearsal",
+    "Relocated macOS runtime still requires its loader environment to be preserved for generated interpreter launches",
+    "VSIX rebuilt, not installed into the active profile",
+    "Scan-performance improvement remains separate"
+  ],
+  "new_dependencies": []
+}

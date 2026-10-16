@@ -1,121 +1,66 @@
 # Context Engine
 
-**Give coding agents cited context across your repositories.** Context Engine reads your selected local checkouts, keeps a search index current, and lets an agent find relevant code through MCP. You can also search from the terminal. Team code and your personal Scratch repository can appear in one VS Code window while remaining in separate indexes and MCP servers.
+**Cited company context for coding agents, directly in VS Code.** Search selected repositories, inspect architecture and code relationships, and maintain reviewed team knowledge in Commonplace. The portable engine runs locally and exposes compact retrieval through MCP.
 
-This is a working local prototype: lexical, semantic, and hybrid retrieval are implemented. Architecture overviews, automatic team-rule resolution, GitHub PR analysis, and knowledge-holder analysis are planned. Company-specific repository provisioning, identity, and API access belong in replaceable integrations.
+## Start in VS Code
 
-## Try it in two minutes
+The client preview targets **macOS Apple Silicon**. Your team supplies the reviewed `context-engine-0.6.0.vsix` and a prepared Python runtime. The extension bundles the engine code, but **does not bundle Python or install parser packages**. Runtime preparation is a one-time team setup task; daily use does not require terminal scripts.
 
-From a checkout of this repository, with **Python 3.9+ and Git** installed:
+1. In VS Code, run **Extensions: Install from VSIX** and select the supplied package.
+2. Open your repository folders. Trust the workspace when appropriate, then open **Context Engine** in the sidebar and select **Get started**.
+3. Run **Check Python and Kotlin setup**. Set **Context Engine: Python Path** to the executable your team supplies. Missing Python offers a settings shortcut and runtime help; missing Kotlin parsing is reported explicitly.
+4. Choose repository folders to create a **Team** or **Personal** scope, or select an existing team-supplied configuration. Only folders you select enter the new scope; no JSON editing is needed for this basic setup.
+5. Select **Refresh code**, then **Open Codex IDE workspace**. Open the generated workspace and use your approved Codex extension account. This route does not require the Codex CLI or a terminal login.
 
-```sh
-python3 -m context_engine --manifest examples/acme.json index
-python3 -m context_engine --manifest examples/acme.json search 'task.requested priority' --token-budget 8000
-```
+The generated workspace includes integration files and a code watcher. Allow its automatic task when VS Code prompts, or start the matching watch task from **Tasks: Run Task**. Start conversations in the generated **Context Engine** folder so its project MCP configuration is loaded. **Workspace health** checks index freshness, coverage, semantic availability and refresh tasks observed in this window. It does not verify an agent account or live MCP connection. Opening the IDE workspace reuses unchanged integration files; runtime/configuration changes create a new workspace, and edited generated files are preserved.
 
-Expect cited results from `api/tasks.py` and `worker/consumer.py`. This demo uses lexical search and needs no extra packages, model, or API key. [Enable semantic search](#enable-semantic-search) when you are ready.
+Preparing the client installation? Read [Client setup](docs/CLIENT-SETUP.md). Developing the engine? Start with [Development and verification](docs/DEVELOPMENT.md). Using the core in another workflow? See the [portable core guide](docs/CORE-GUIDE.md).
 
-## Set up your team and personal repositories
+## Everyday work
 
-Clone or mount your repositories first, using Git or your existing workspace harness. Then run this from the Context Engine checkout, replacing the example paths:
+- **Context workbench:** search code, inspect cited evidence, and assemble bounded task context before handing it to an agent. You can use it without starting an agent.
+- **Change context:** choose a repository and Git base, read changed code, applicable guidance and possible tests, then add the complete brief and its coverage limits to a task pack.
+- **Team knowledge:** browse all five knowledge types, choose supporting source evidence, write a proposal in a guided form, and explicitly approve, reject or retire it. Stale records lead to re-review drafts. Agents receive only applicable approved current guidance.
+- **Task packs:** prepare a local handoff, copy its prompt and use it in your approved IDE agent. Handoff rechecks citations and never invokes the legacy terminal launcher.
+- **Workspace health:** check the selected repositories, refresh code, and start/stop code refresh observed in this window.
+- **Commonplace team knowledge:** map a team repository to a local snapshot directory, then explicitly export or preview/import edits. Imported edits become proposals; they do not approve themselves. Repository synchronization is not automatic.
+- **Maintain local knowledge:** inspect stale records, exact duplicates and feedback, and prepare drafts for human re-review.
+- **New Scratch reasoning note:** start an empty working note. Scratch holds exploration; Commonplace holds curated team conclusions. No hidden model reasoning or conversation is captured.
 
-```sh
-python3 -m context_engine init \
-  --environment my-team \
-  --workspace checkout \
-  --repo api="$HOME/dev/api" \
-  --repo worker="$HOME/dev/worker" \
-  --personal-repo scratch="$HOME/dev/scratch" \
-  --output "$HOME/.local/share/context-engine/checkout"
-```
+Use **Show advanced actions** for Commonplace snapshots, static wiki, maintenance, Scratch notes, profiles, advanced imports/relationships, benchmarks, client readiness, reviewed usage reports, diagnostics, and legacy integrations. Every command remains available from the Command Palette. Legacy terminal flows are blocked under the managed pilot policy.
 
-Repeat `--repo NAME=PATH` for team repositories; repeat or omit `--personal-repo` as needed. Paths can contain spaces. Use a dedicated output directory outside every source repository. The command validates local paths and rejects overlapping team/personal roots before writing files.
+## Local company knowledge, no vendor collection
 
-`init` creates:
+The client-local engine intentionally knows the selected company repositories and retains approved local indexes and derived knowledge. **The Context Engine vendor must not receive company code, prompts, repository references, indexes, or derived knowledge.** There is no usage-report uploader. Optional reports contain a fixed schema of aggregate statistics; users preview/save them and the client vets them before any manual sharing.
 
-| File | Purpose |
-| --- | --- |
-| `team.json` | Only your selected team repositories |
-| `personal.json` | Only your personal repositories, when supplied |
-| `context-engine.code-workspace` | VS Code folders for the engine integration and selected sources |
-| `.vscode/tasks.json` | Watch, index, status, and search tasks for each scope |
-| `.codex/config.toml` | Separate `context_engine_team` and optional `context_engine_personal` MCP servers |
-| `AGENTS.md` | Retrieval, citation, scope, and repository-instruction guidance for agents |
-| `README.md` | Instructions specific to the generated workspace |
+Your selected coding agent receives the evidence you use with it and has its own account and data policies. Context Engine's vendor boundary is separate from that agent's behavior. See the [vendor data boundary and repeatable check](docs/security/VENDOR-DATA-BOUNDARY.md).
 
-It does not clone repositories, install packages, download models, launch VS Code, or change source files. New output directories are created with owner-only access. Keep an existing output directory private yourself. Generated paths are machine-local; keep this directory in your personal developer environment rather than sharing it with the team.
+## Scope and current limits
 
-## Open it and start working
+The extension and portable core live in one repository. Separate Team and Personal scopes have separate indexes; work-related Scratch still belongs in the company-controlled environment. Commonplace uses local maintainer review for this MVP, with no shared approval server.
 
-1. Open the generated `context-engine.code-workspace` in VS Code using **File → Open Workspace from File**.
-2. Trust your selected workspace and allow automatic tasks if prompted. Otherwise run **Tasks: Run Task → Context Engine team: watch**, plus **Context Engine personal: watch** if configured.
-3. Start Codex with **Context Engine** as its working folder. The project must be trusted for its `.codex/config.toml` to load. Reconnect/restart the client after changing configuration or engine code. [Official Codex MCP configuration](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)
-4. Ask: **“Check the team index status, then find the implementation of [behavior]. Cite files and lines, and explain any gaps.”**
+Retrieval includes lexical search, bounded reads, structural navigation, cached architecture facts/relationships, and optional semantic/hybrid adapters. Kotlin navigation uses syntax parsing, not a compiler-resolved call graph. The restricted client profile excludes optional semantic models and several remote/history features. Response budgets bound serialized UTF-8 bytes; they are not measured model tokens or dollar savings.
 
-To use your notes, ask the agent to query the personal server too. It can combine authorized evidence in its answer; the engine does not merge the indexes. Keep personal evidence out of shared team deliverables.
+This is the **0.6.0 alpha candidate**; follow the [alpha acceptance checklist](docs/ALPHA-ACCEPTANCE.md). Client runtime preparation, fresh-Mac testing, account integration and release approval remain explicit steps. Cross-record relationships, extra supporting citations and imported-review provenance still use advanced local JSON workflows. Guided drafts are held in the open panel; save a proposal before closing or reloading VS Code. Built-in synthetic benchmarks measure fixture behavior, not client task success.
 
-The **watch** task indexes once, then refreshes saved changes. **status** shows freshness and semantic readiness; **index** refreshes once; **search** prompts for a terminal query. **Tasks: Terminate Task** stops a watcher. Closing its window normally stops the foreground task. The index persists in `state/team` and, if configured, `state/personal` beneath the generated directory.
+Refresh timing saved through **Profile** preserves your current index, knowledge and packs. Repository/retrieval changes explicitly create a separate scope; the old scope remains selectable. Direct edits to a manifest still use configuration-specific store identities.
 
-For a terminal-only workflow, use the generated manifest:
+## Guides
 
-```sh
-python3 -m context_engine --manifest "$HOME/.local/share/context-engine/checkout/team.json" \
-  --state "$HOME/.local/share/context-engine/checkout/state/team" watch
-```
+- [Alpha acceptance and known limits](docs/ALPHA-ACCEPTANCE.md)
+- [Dogfooding the engine and Scratch](docs/DOGFOODING.md)
 
-Run `search` or `status` in another terminal with the same manifest and state arguments. Global options (`--manifest`, `--state`) precede the command. `python3 -m context_engine init --help` and `python3 -m context_engine --help` list the options.
+- [Extension commands and troubleshooting](vscode-extension/README.md)
+- [Client setup and handoff](docs/CLIENT-SETUP.md)
+- [Portable core commands and integration](docs/CORE-GUIDE.md)
+- [Development, tests and packaging](docs/DEVELOPMENT.md)
+- [Commonplace](docs/COMMONPLACE.md), [knowledge workflows](docs/LAUNCH-WORKFLOWS.md), [maintenance](docs/KNOWLEDGE-MAINTENANCE.md)
+- [Change briefs and reviewed lesson workflow](docs/P1-WORKFLOWS.md)
+- [Client-test readiness and release gates](docs/security/CLIENT-TEST-READINESS.md), [dependency review](docs/security/RELEASE-DEPENDENCY-REVIEW.md)
 
-## Enable semantic search
+### GitHub review learning through the client gateway
 
-The optional reference adapter embeds locally using cached model weights. Create an isolated environment and explicitly download the public model:
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install -r requirements-semantic.txt
-.venv/bin/python -m context_engine init \
-  --environment my-team --workspace checkout \
-  --repo api="$HOME/dev/api" --repo worker="$HOME/dev/worker" \
-  --personal-repo scratch="$HOME/dev/scratch" \
-  --semantic \
-  --output "$HOME/.local/share/context-engine/checkout-semantic"
-.venv/bin/python prefetch_model.py --cache-folder "$HOME/.local/share/context-engine/checkout-semantic/models"
-```
-
-The generated manifests point at the prefetched `models` directory. Open the new workspace after prefetch finishes. The generated tasks capture the interpreter used to run `init`, so use `.venv/bin/python` for this setup. No JSON editing is required.
-
-Once indexed, check `semantic.state: ready`. `auto` uses hybrid retrieval when embeddings are configured; `--mode lexical`, `semantic`, or `hybrid` selects a mode explicitly. Semantic failure is reported, with lexical fallback in hybrid mode. Source text is processed locally by this reference adapter; it is not uploaded during model download. [Adapter details, measured results, and limitations](docs/SEMANTIC-REFERENCE.md)
-
-## Change configuration or integrate an existing harness
-
-Rerunning an identical `init` command is idempotent. To change repositories, mode, or interpreter, create a fresh output directory and open it. Setup refuses to overwrite edited generated files. Advanced users can edit manifests and maintain their launch configuration manually; source scope changes start a new index, and old stores are retained until you remove them.
-
-Already have a harness? Keep its launcher. Supply local source manifests, start a watcher per scope, and register a read-only MCP `serve` process for each. The company layer can resolve GitHub repos and the current user's personal repo before invoking setup, or consume the same manifest/server interfaces directly. An internal embedding API implements `EmbeddingProvider`; it does not require rewriting the engine.
-
-- [Configuration and existing-harness integration](docs/CONFIGURATION.md)
-- [Agent usage guide](docs/AGENT-USAGE.md)
-- [Semantic provider interface](docs/SEMANTIC-REFERENCE.md)
-
-## Troubleshooting
-
-| Symptom | What to do |
-| --- | --- |
-| MCP tools missing | Use the generated **Context Engine** working folder, trust the project, and reconnect the client. Confirm `.codex/config.toml` names the expected interpreter and manifest. |
-| `unindexed` or `stale` | Start the matching **watch** task or run **index**. Retrieval deliberately withholds stale source evidence. |
-| Sources ready, semantic pending/error | Check `semantic.last_index`, install the optional dependencies into the captured interpreter, prefetch the pinned model into the configured cache, then run **index**. |
-| Personal results missing | Query `context_engine_personal`; they are intentionally absent from the team server. |
-| “Existing file differs” | Preserve your edits and generate into a new directory. There is no overwrite flag. |
-| “Source directory does not exist” | Clone/mount the checkout first. `init` accepts local directories, not GitHub URLs. |
-| Irrelevant semantic matches | Inspect the cited code; similarity is not proof a behavior exists. Try lexical mode for exact identifiers. The prototype has no calibrated semantic rejection threshold. |
-
-## Limits and development
-
-This is single-user software, not a shared service or multi-user authorization layer. Separate stores do not replace company access controls. Code, personal notes, vectors, and derived data belong in their approved environment. Scans honor supported-file and exclusion rules; they are not a secret scanner. Read [configuration details](docs/CONFIGURATION.md) before attaching a broad directory.
-
-Python has AST excerpts; other supported languages use text windows. There is no resolved call graph. Evidence budgets use serialized UTF-8 bytes as a conservative token estimate, not actual model tokens. Exact vector scanning and polling suit small local corpora; source edits can race scans. Semantic/hybrid modes still return nearest neighbors for unsupported questions.
-
-```sh
-python3 -m unittest discover -s tests -v
-python3 evaluate.py
-```
-
-[Development and evaluation](docs/DEVELOPMENT.md) explains optional real-model tests and the small published benchmarks. The intended license remains Apache-2.0, pending a license file and distribution-rights review; this commit is a local checkpoint, not a public release.
+Use **Context Engine: Learn from GitHub Reviews** to prepare a scoped prompt for
+your connected agent, read its collected evidence and review proposed guidelines.
+See [the gateway review-learning guide](docs/GITHUB-REVIEW-LEARNING.md) for the
+three output layers, Commonplace review loop and collection limits.

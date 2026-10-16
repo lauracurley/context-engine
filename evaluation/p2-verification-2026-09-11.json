@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-11",
+  "increment": "local-p2-maintenance",
+  "quality_gate": "passed",
+  "python_tests": 105,
+  "python_optional_skips": 2,
+  "extension_tests": 30,
+  "python": "3.13.15",
+  "node": "24.21.0",
+  "artifact": "context-engine-0.5.1.vsix",
+  "sha256": "2ab3d0873dc647bf7c390620ad4381ab8672886456c3b17bacbe55633159c275",
+  "new_runtime_dependencies": [],
+  "new_vendor_report_fields": [],
+  "limits": [
+    "No live company data or GitHub test",
+    "No new native VS Code host smoke",
+    "Not installed or published",
+    "P2/P3 disposition is partial implementation and explicit deferral, not completion of the full backlog"
+  ]
+}

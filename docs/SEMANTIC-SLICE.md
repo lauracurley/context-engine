@@ -23,7 +23,7 @@ For an initial small local corpus, exact vector similarity scoring can be a corr
 
 Retain Python AST chunks and explicit fallback windows initially, while measuring the dominant work languages. Add parser adapters for the work stack where whole-window retrieval fails. Embedding text should contain the path, symbol/signature when available, and the excerpt, with deterministic truncation and a recorded input-template version. Avoid embedding unrelated repositories or combining private notes with team documents in one chunk.
 
-Semantic relevance is not structural proof. Retrieval must not claim it resolved a call graph or producer/consumer relationship. Architecture extraction and instruction resolution remain separate follow-on capabilities, even when they reuse the same evidence identities.
+Semantic relevance is not structural proof. Retrieval must not claim it resolved a call graph or producer/consumer relationship. Architecture extraction is now implemented as a separate cited structural layer; instruction resolution remains outstanding. Both are distinct from semantic similarity. See [current architecture](ARCHITECTURE.md).
 
 ## Evaluation contract
 
@@ -44,3 +44,5 @@ Gates for the pilot:
 ## Follow-on milestones
 
 After semantic retrieval works in the harness: scoped instruction loading plus a cited low-token architecture overview; then a periodic canonical team crawler; then opt-in GitHub/commit decision retrieval and bounded knowledge-holder analysis. Develop a shared service only with authenticated scope enforcement and personal-data isolation tests. The current workspace generator remains useful for demonstrations, not the production bring-up architecture.
+
+Current implementation update: the local architecture map, periodic crawler, managed canonical Git sources, and opt-in history/activity ingestion are implemented. The milestone ordering above records the original design; company deployment, instruction resolution, and representative retrieval-quality acceptance remain incomplete.

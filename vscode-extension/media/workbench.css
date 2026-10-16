@@ -1,0 +1,234 @@
+body {
+  font: var(--vscode-font-size)/1.55 var(--vscode-font-family);
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px;
+}
+[hidden] {
+  display: none !important;
+}
+nav button[aria-pressed='true'] {
+  outline: 2px solid var(--vscode-focusBorder);
+  outline-offset: 2px;
+}
+form > label {
+  margin: 14px 0;
+}
+article > button,
+form > button {
+  margin: 8px 8px 0 0;
+}
+h1 {
+  font-size: 26px;
+  margin: 3px 0;
+}
+h2 {
+  font-size: 19px;
+}
+h3 {
+  margin: 0 0 8px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--vscode-descriptionForeground);
+}
+nav,
+.actions,
+.filters,
+.searchbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+nav {
+  margin: 24px 0;
+  border-bottom: 1px solid var(--vscode-panel-border);
+  padding-bottom: 16px;
+}
+button {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: 1px solid transparent;
+  padding: 7px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+button:focus-visible,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--vscode-focusBorder);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border: 1px solid var(--vscode-input-border, var(--vscode-panel-border));
+  padding: 7px;
+  max-width: 100%;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.searchbar input {
+  flex: 1;
+  min-width: 240px;
+}
+.filters {
+  margin: 12px 0;
+}
+#status {
+  padding: 12px 0;
+  color: var(--vscode-descriptionForeground);
+}
+article,
+.box {
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 6px;
+  padding: 18px;
+  margin: 14px 0;
+}
+.meta {
+  font-size: 12px;
+  color: var(--vscode-descriptionForeground);
+  overflow-wrap: anywhere;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--vscode-textCodeBlock-background);
+  padding: 12px;
+  font-family: var(--vscode-editor-font-family);
+}
+.actions {
+  margin-top: 12px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+.wide {
+  width: 100%;
+}
+.warning {
+  color: var(--vscode-editorWarning-foreground);
+}
+.tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+details {
+  margin-top: 10px;
+}
+summary {
+  cursor: pointer;
+}
+textarea {
+  min-height: 70px;
+}
+form button[type='submit'] {
+  align-self: end;
+}
+
+.architecture-controls {
+  margin: 1.5rem 0;
+}
+.architecture-controls label {
+  max-width: 320px;
+}
+.architecture-reader {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 760px);
+  gap: 2.5rem;
+  margin: 2rem 0;
+}
+.architecture-reader nav {
+  display: block;
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+.architecture-reader nav a {
+  display: block;
+  padding: 0.45rem 0;
+  color: var(--vscode-textLink-foreground);
+  text-decoration: none;
+}
+.architecture-prose {
+  font-size: 15px;
+  line-height: 1.75;
+}
+.architecture-prose h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+.architecture-prose h2 {
+  margin-top: 2rem;
+  line-height: 1.35;
+}
+.architecture-prose li {
+  margin: 0.5rem 0;
+}
+.architecture-prose pre {
+  overflow: auto;
+  padding: 1rem;
+}
+.source-link {
+  display: inline;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--vscode-textLink-foreground);
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 750px) {
+  .architecture-reader {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .architecture-reader nav {
+    position: static;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+}
+.skip-link:focus {
+  position: static;
+  color: var(--vscode-textLink-foreground);
+}
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+  input,
+  select,
+  textarea {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .searchbar input {
+    flex: 1 1 160px;
+  }
+}
